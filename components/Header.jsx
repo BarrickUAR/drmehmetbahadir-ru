@@ -25,7 +25,7 @@ const Header = () => {
       {/* Logo */}
       <div className="mb-10">
         <Image
-          src="/images/logo.png"
+          src="/images/logo-white.png"
           alt="Header Logo"
           width={120}
           height={80}

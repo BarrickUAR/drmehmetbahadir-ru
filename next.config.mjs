@@ -1,4 +1,8 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
+// ✅ ESM uyumlu export
+const nextConfig = {
+  experimental: {
+    turbo: false,
+  },
+};
 
 export default nextConfig;
