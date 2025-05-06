@@ -86,7 +86,7 @@ export default function Home() {
               />
               <div className="testimonalRight relative z-10 flex justify-center items-center h-full">
                 <Image
-                  src="/images/hoca.jpg"
+                  src="/images/heroimg.jpg"
                   alt="Descriptive text"
                   width={700}
                   height={600}
@@ -152,7 +152,7 @@ export default function Home() {
               />
               <div className="testimonalRight relative z-10 flex justify-center items-center h-full">
                 <Image
-                  src="/images/hoca.jpg"
+                  src="/images/heroimg.jpg"
                   alt="Descriptive text"
                   width={700}
                   height={600}
