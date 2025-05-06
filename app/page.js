@@ -61,16 +61,16 @@ export default function Home() {
                   molestiae?
                 </p>
               </div>
-              <div className="inputForm flex justify-start items-center mt-10 gap-2">
+              <div className="inputForm flex justify-start items-center mt-10 ">
                 <div className="relative">
                   <FaPhone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
                   <input
                     type="tel"
                     placeholder="Telefon numaranız"
-                    className="pl-10 pr-4 py-3 border-2 border-gray-300 w-[400px] rounded-md focus:outline-none focus:ring-2 focus:ring-sky-400"
+                    className="pl-10 pr-4 py-3 rounded-l-md border-2 border-gray-300 w-[400px]  focus:outline-none focus:ring-2 focus:ring-sky-400"
                   />
                 </div>
-                <button className="bg-sky-500 text-white px-6 py-3.5 rounded-md hover:bg-sky-600 transition-all duration-200">
+                <button className="bg-sky-500 text-white px-6 py-3.5  hover:bg-sky-600 transition-all duration-200">
                   Submit
                 </button>
               </div>
