@@ -9,11 +9,11 @@ const Header = () => {
   const pathname = usePathname();
 
   const navItems = [
-    { label: "Home", href: "/" },
-    { label: "Services", href: "/services" },
-    { label: "Blogs", href: "/blogs" },
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" },
+    { label: "Главная", href: "/" }, // Home
+    { label: "Услуги", href: "/services" }, // Services
+    { label: "Блог", href: "/blogs" }, // Blogs
+    { label: "О нас", href: "/about" }, // About
+    { label: "Контакты", href: "/contact" }, // Contact
   ];
 
   return (
@@ -26,7 +26,7 @@ const Header = () => {
       <div className="mb-10">
         <Image
           src="/images/logo-white.png"
-          alt="Header Logo"
+          alt="Логотип"
           width={120}
           height={80}
           className="cursor-pointer"
@@ -52,8 +52,8 @@ const Header = () => {
 
       {/* Button */}
       <div className="mt-auto pt-10">
-        <Link href="#" className="btn-primary">
-          Randevu Al
+        <Link href="/contact" className="btn-primary">
+          Запись
         </Link>
       </div>
     </header>

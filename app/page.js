@@ -1,36 +1,69 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { FaPhone } from "react-icons/fa";
-import { FaArrowRight } from "react-icons/fa";
+import { FaPhone, FaArrowRight } from "react-icons/fa";
 import { MdVerifiedUser } from "react-icons/md";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
+import Link from "next/link";
+
+const reviews = [
+  {
+    author_name: "Наталья Петрова",
+    rating: 5,
+    text: "Доктор Бахадир — настоящий профессионал. Его методы лечения помогли мне справиться с псориазом без медикаментов. Рекомендую всем!",
+  },
+  {
+    author_name: "Алексей Иванов",
+    rating: 4,
+    text: "Клиника очень чистая и персонал дружелюбный. Единственный минус — немного долго ждать приема.",
+  },
+  {
+    author_name: "Мария Смирнова",
+    rating: 5,
+    text: "После нескольких месяцев лечения у доктора Бахадира мои симптомы значительно уменьшились. Благодарна за профессионализм и заботу.",
+  },
+  {
+    author_name: "Иван Козлов",
+    rating: 5,
+    text: "Очень уютная атмосфера и современное оборудование. Доктор подробно объяснил все этапы лечения.",
+  },
+  {
+    author_name: "Екатерина Сидорова",
+    rating: 5,
+    text: "Результаты превзошли все мои ожидания. Спасибо доктору Бахадиру за его чуткость и профессионализм!",
+  },
+];
 
 export default function Home() {
   return (
     <React.Fragment>
       {/* Hero Section */}
       <section className="containerHome min-h-screen w-full px-0 py-20 bg-white flex  text-white justify-between items-center mb-10  ">
-        <div className="wrapper flex flex-col items-center justify-center relative border-t border-b p-5 mx-auto">
+        <div className="wrapper flex flex-col items-center justify-center relative border-t border-b p-5 mx-auto ">
           <div className="text-center flex flex-col items-center justify-center  ">
-            <h1 className="mb-3 ">
+            <h1 className="mb-3 font-extrabold">
               Get ready for your best ever Dental Experience!
             </h1>
-            <p className="text-lg">
-              We use only the best quality materials on the market in order to
-              provide the best products to our patients, So don’t worry about
-              anything and book yourself.
+            <p className="text-lg font-extrabold">
+              В нашей клинике проводится лечение следующих заболеваний: псориаз,
+              экзема, себорейный дерматит, лишай, ихтиоз
+              <br />и ревматические заболевания (остеоартрит, анкилозирующий
+              спондилит, системная красная волчанка, тиреоидит Хашимото).
             </p>
           </div>
           <div className="flex gap-4 mt-10">
             <div>
-              <button className="btn-primary">Randevu Oluştur</button>
+              <Link
+                href="/contact"
+                className="btn-primary inline-block text-center"
+              >
+                Записаться на приём
+              </Link>
             </div>
             <a
               href="tel:+905527533464"
@@ -38,8 +71,10 @@ export default function Home() {
             >
               <FaPhone className="text-4xl w-[50px] h-[50px] text-white  text-primary border-2 border-[#25B4F8] p-2 rounded-lg" />
               <div>
-                <h4>Randevu İçin Arayabilirsiniz</h4>
-                <p>+90 (552) 753 34 64</p>
+                <h4 className="font-extrabold">
+                  Вы можете позвонить для записи
+                </h4>
+                <p className="font-extrabold">+90 (552) 753 34 64</p>
               </div>
             </a>
           </div>
@@ -48,19 +83,31 @@ export default function Home() {
       {/* Hero Section */}
 
       {/* Testimonial Section */}
-
       <section className="testimonialSection flex justify-center items-center mx-auto mb-20 p-20">
         <div className="flex flex-col gap-20 w-full">
           <div className="wrapper flex flex-col md:flex-row justify-center items-center gap-10">
             {/* Sol metin */}
             <div className="testimonalLeft border-l-2 border-r-2 border-sky-500 p-10">
-              <div className="text-start">
-                <h1 className="mb-4">Lorem ipsum dolor sit amet.</h1>
-                <p className="text-gray-500">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-                  molestiae?
+              <div className="text-start max-w-[600px] mx-auto">
+                <h1 className="mb-4 text-xl font-bold">О нас.</h1>
+                <p className="text-gray-500 text-justify">
+                  Доктор родился в 1971 году в Анталии. Начальное и среднее
+                  образование он получил в начальной школе Барбарос (Анталия) и
+                  Анталийской анатолийской школе.
+                  <br />
+                  С 1989 по 1996 год учился в медицинском факультете
+                  Стамбульского университета.
+                  <br />
+                  Он прошел обучение по мезотерапии и озонотерапии в рамках
+                  обучения Министерства здравоохранения.
+                  <br />
+                  Работал в фонде помощи детям с лейкемией и участвовал в
+                  экстренной помощи 112.
+                  <br />
+                  Работал врачом в нескольких частных больницах.
                 </p>
               </div>
+
               <div className="inputForm flex justify-start items-center mt-10 ">
                 <div className="relative">
                   <FaPhone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
@@ -77,7 +124,7 @@ export default function Home() {
             </div>
 
             {/* Sağ görsel */}
-            <div className="testimonalWrapper relative w-[600px] h-[500px] p-10 overflow-hidden">
+            <div className="testimonalWrapper relative w-[500px] h-[300px] p-5 overflow-hidden">
               <Image
                 src="/images/bg-blue.jpg"
                 alt="Descriptive text"
@@ -96,54 +143,66 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="wrapper flex flex-col md:flex-row-reverse justify-center items-center gap-10">
+          <div className="wrapper flex flex-col md:flex-row-reverse justify-center items-center gap-10 ">
             {/* Sağ metin */}
-            <div className="testimonalLeft flex flex-col justify-start border-sky-500 p-10">
+            <div className="testimonalLeft flex flex-col justify-start border-sky-500 p-10 ">
               <div className="text-start">
-                <h1 className="mb-4">Lorem ipsum dolor sit amet.</h1>
-                <p className="text-gray-500">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-                  molestiae?
-                </p>
+                <h1 className="mb-4 text-center"> Почему мы?</h1>
               </div>
               <div className="listItems flex justify-start items-center mt-10 gap-2 ">
                 <ol className="mb-10">
                   <li className="flex items-center gap-2 text-2xl">
                     <MdVerifiedUser className="text-sky-600" />
                     <span className="text-gray-600">
-                      Lorem ipsum dolor sit amet.
+                      Наши методы лечения не имеют побочных эффектов
                     </span>
                   </li>
 
                   <li className="flex items-center gap-2 text-2xl">
                     <MdVerifiedUser className="text-sky-600" />
                     <span className="text-gray-600">
-                      Lorem ipsum dolor sit amet.
+                      Мы не оставляем ни одного пациента без улучшений.
                     </span>
                   </li>
 
                   <li className="flex items-center gap-2 text-2xl">
                     <MdVerifiedUser className="text-sky-600" />
                     <span className="text-gray-600">
-                      Lorem ipsum dolor sit amet.
+                      Мы проводим контроль за состоянием пациента в течение 2
+                      лет.
                     </span>
                   </li>
 
                   <li className="flex items-center gap-2 text-2xl">
                     <MdVerifiedUser className="text-sky-600" />
                     <span className="text-gray-600">
-                      Lorem ipsum dolor sit amet.
+                      Мы делаем акцент на пробиотиках в наших диетах.
+                    </span>
+                  </li>
+
+                  <li className="flex items-center gap-2 text-2xl">
+                    <MdVerifiedUser className="text-sky-600" />
+                    <span className="text-gray-600">
+                      Мы предоставляем поддержку через Whatsapp для пациентов,
+                      живущих вдали.
+                    </span>
+                  </li>
+
+                  <li className="flex items-center gap-2 text-2xl">
+                    <MdVerifiedUser className="text-sky-600" />
+                    <span className="text-gray-600 ">
+                      Мы предлагаем лечение без кортизона.
                     </span>
                   </li>
                 </ol>
               </div>
-              <button className="btn-primary w-[50%]">
-                Book an Appointment
-              </button>
+              <Link href="/contact" className="btn-primary text-center">
+                Записаться на приём
+              </Link>
             </div>
 
             {/* Sol görsel */}
-            <div className="testimonalWrapper relative w-[600px] h-[500px] p-10 overflow-hidden">
+            <div className="relative w-[500px] h-[300px] p-5 overflow-hidden">
               <Image
                 src="/images/bg-blue.jpg"
                 alt="Descriptive text"
@@ -163,15 +222,12 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Testimonial Section */}
 
       {/* Service Section */}
-
-      <h1 className="text-center p-10  mt-10 border-l-4 border-r-4 mb-20 border-sky-400  w-fit mx-auto text-2xl font-bold text-sky-500">
-        Hizmetlerimiz
+      <h1 className="text-center p-10 mt-10 border-l-4 border-r-4 mb-20 border-sky-400 w-fit mx-auto text-2xl font-bold text-sky-500">
+        Наши услуги
       </h1>
-
       <section className="serviceSection p-20">
         <Swiper
           slidesPerView={6}
@@ -284,12 +340,163 @@ export default function Home() {
           ))}
         </Swiper>
       </section>
-
       {/* Service Section */}
+      {/* Happy Clients Section */}
+      <h1 className="text-center p-10 mt-10 border-l-4 border-r-4 mb-10 border-sky-400 w-fit mx-auto text-2xl font-bold text-sky-500">
+        Что говорят наши пациенты?
+      </h1>
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-5 mb-6 mx-auto max-w-[1200px]">
+        {reviews.map((review, index) => (
+          <div
+            key={index}
+            className="bg-white p-6 shadow-md rounded-xl w-full min-h-[200px] flex flex-col justify-between transition duration-300 transform hover:scale-105 hover:shadow-xl cursor-pointer"
+          >
+            <div className="mb-4">
+              <div className="flex justify-between items-center mb-2">
+                <span className="font-semibold text-gray-800">
+                  {review.author_name}
+                </span>
+                <div className="flex gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <svg
+                      key={i}
+                      className={`w-4 h-4 ${
+                        i < review.rating ? "text-yellow-400" : "text-gray-300"
+                      }`}
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.177 3.617a1 1 0 00.95.69h3.805c.969 0 1.371 1.24.588 1.81l-3.08 2.24a1 1 0 00-.364 1.118l1.177 3.617c.3.921-.755 1.688-1.538 1.118l-3.08-2.24a1 1 0 00-1.176 0l-3.08 2.24c-.783.57-1.838-.197-1.538-1.118l1.177-3.617a1 1 0 00-.364-1.118l-3.08-2.24c-.783-.57-.38-1.81.588-1.81h3.805a1 1 0 00.95-.69l1.177-3.617z" />
+                    </svg>
+                  ))}
+                </div>
+              </div>
+              <p className="text-sm text-gray-700">{review.text}</p>
+            </div>
+          </div>
+        ))}
+      </section>
+      <a
+        href="https://www.google.com/maps/place/?q=place_id:ChIJBYqbRW27yhQR0VJeRjVbo7w"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-sky-600 underline text-sm mt-4 block text-center hover:text-sky-800 transition"
+      >
+        Посмотреть все отзывы на Google →
+      </a>
+      {/* Happy Clients Section */}
 
-          
+      {/* Videos Section */}
+      <section className="py-20 px-5 bg-gray-50">
+        <h2 className="text-center text-2xl font-bold text-sky-600 mb-10">
+          Видеогалерея
+        </h2>
 
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {/* Video 1 */}
+          <div className="bg-white shadow-md rounded-lg overflow-hidden">
+            <iframe
+              className="w-full aspect-video"
+              src="https://www.youtube.com/embed/XAJjWlb9adA"
+              title="Пациент делится опытом лечения"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+            <div className="p-4">
+              <h3 className="font-semibold text-lg mb-2">Опыт лечения</h3>
+              <p className="text-sm text-gray-600">
+                Пациент рассказывает о результатах после 2 месяцев терапии.
+              </p>
+            </div>
+          </div>
 
+          {/* Video 2 */}
+          <div className="bg-white shadow-md rounded-lg overflow-hidden">
+            <iframe
+              className="w-full aspect-video"
+              src="https://www.youtube.com/embed/bCmYvduvGUg"
+              title="Объяснение метода лечения"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+            <div className="p-4">
+              <h3 className="font-semibold text-lg mb-2">Методы лечения</h3>
+              <p className="text-sm text-gray-600">
+                Доктор Бахадир объясняет, как проводится комплексная терапия.
+              </p>
+            </div>
+          </div>
+
+          {/* Video 3 - örnek boş video kutusu */}
+          <div className="bg-white shadow-md rounded-lg overflow-hidden">
+            <iframe
+              className="w-full aspect-video"
+              src="https://www.youtube.com/embed/XAJjWlb9adA"
+              title="Название видео"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+            <div className="p-4">
+              <h3 className="font-semibold text-lg mb-2">Название видео</h3>
+              <p className="text-sm text-gray-600">
+                Краткое описание на русском языке.
+              </p>
+            </div>
+          </div>
+
+          {/* Video 4 */}
+          <div className="bg-white shadow-md rounded-lg overflow-hidden">
+            <iframe
+              className="w-full aspect-video"
+              src="https://www.youtube.com/embed/TgioDLLmhro"
+              title="Пациент делится опытом лечения"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+            <div className="p-4">
+              <h3 className="font-semibold text-lg mb-2">Опыт лечения</h3>
+              <p className="text-sm text-gray-600">
+                Пациент рассказывает о результатах после 2 месяцев терапии.
+              </p>
+            </div>
+          </div>
+
+          {/* Video 5 */}
+          <div className="bg-white shadow-md rounded-lg overflow-hidden">
+            <iframe
+              className="w-full aspect-video"
+              src="https://www.youtube.com/embed/j6ga9eN0JOk"
+              title="Объяснение метода лечения"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+            <div className="p-4">
+              <h3 className="font-semibold text-lg mb-2">Методы лечения</h3>
+              <p className="text-sm text-gray-600">
+                Доктор Бахадир объясняет, как проводится комплексная терапия.
+              </p>
+            </div>
+          </div>
+
+          {/* Video 6 - örnek boş video kutusu */}
+          <div className="bg-white shadow-md rounded-lg overflow-hidden">
+            <iframe
+              className="w-full aspect-video"
+              src="https://www.youtube.com/embed/FYcjkhDN2Mg"
+              title="Название видео"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+            <div className="p-4">
+              <h3 className="font-semibold text-lg mb-2">Название видео</h3>
+              <p className="text-sm text-gray-600">
+                Краткое описание на русском языке.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Videos Section */}
     </React.Fragment>
   );
 }

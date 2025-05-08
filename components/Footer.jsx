@@ -10,16 +10,16 @@ const Footer = () => {
   const pathname = usePathname();
 
   const navItems = [
-    { label: "Home", href: "/" },
-    { label: "Services", href: "/services" },
-    { label: "Blogs", href: "/blogs" },
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" },
+    { label: "Главная", href: "/" }, // Home
+    { label: "Услуги", href: "/services" }, // Services
+    { label: "Блог", href: "/blogs" }, // Blogs
+    { label: "О нас", href: "/about" }, // About
+    { label: "Контакты", href: "/contact" }, // Contact
   ];
 
   return (
-    <footer className="w-full text-black opacity-90 pt-20 mb-5 shadow-inner  border-sky-500 ">
-      <div className="wrapper max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10  border-b-2 pb-5">
+    <footer className="w-full text-black opacity-90 pt-20 mb-5 shadow-inner border-sky-500">
+      <div className="wrapper max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 border-b-2 pb-5">
         {/* Logo */}
         <div className="mb-6 md:mb-0">
           <Image
@@ -50,13 +50,14 @@ const Footer = () => {
 
         {/* Copyright / CTA */}
         <div className="text-sm text-center md:text-right">
-          <p>© {new Date().getFullYear()} Dr. Mehmet İlteber Bahadır</p>
+          <p>© {new Date().getFullYear()} Д-р Мехмет Ильтебер Бахадыр</p>
           <Link href="/contact" className="text-[#25B4F8] hover:underline">
-            Randevu Al
+            Записаться на приём
           </Link>
         </div>
       </div>
 
+      {/* Social Media */}
       <div className="socialMedia flex justify-center gap-6 mt-6 text-black text-xl">
         <Link
           href="https://facebook.com"
