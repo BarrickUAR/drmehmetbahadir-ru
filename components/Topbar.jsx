@@ -19,7 +19,7 @@ const Topbar = () => {
         {/* Orta: Sosyal Medya */}
         <div className="hidden sm:flex justify-center gap-4 text-white text-lg">
           <a
-            href="https://www.facebook.com"
+            href="https://www.facebook.com/drmehmetilteberbahadir"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-blue-500 transition"
@@ -28,7 +28,7 @@ const Topbar = () => {
           </a>
 
           <a
-            href="https://www.instagram.com"
+            href="https://www.instagram.com/dr.mehmetilteberbahadir/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-pink-500 transition"
@@ -37,7 +37,7 @@ const Topbar = () => {
           </a>
 
           <a
-            href="https://www.youtube.com"
+            href="https://www.youtube.com/@DrMehmet%C4%B0lteberBahadir"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-red-500 transition"

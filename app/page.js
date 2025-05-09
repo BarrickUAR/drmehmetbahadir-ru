@@ -200,7 +200,7 @@ export default function ServiceSection() {
               </div>
               <div className="aboutBtn flex justify-start items-center mt-10">
                 <Link href="/about" className="btn-primary">
-                  Hakkımızda
+                  О нас
                 </Link>
               </div>
             </div>

@@ -55,7 +55,7 @@ const Footer = () => {
         {/* Copyright / CTA */}
         <div className="text-sm text-center md:text-right">
           <p>© {new Date().getFullYear()} Д-р Мехмет Ильтебер Бахадыр</p>
-          <Link href="/contact" className="text-[#25B4F8] hover:underline">
+          <Link href="/contact" className=" text-[#25B4F8] hover:underline">
             Записаться на приём
           </Link>
         </div>
@@ -64,7 +64,7 @@ const Footer = () => {
       {/* Social Media */}
       <div className="socialMedia flex justify-center gap-6 mt-6 text-black text-xl">
         <Link
-          href="https://facebook.com"
+          href="https://www.facebook.com/drmehmetilteberbahadir"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-[#25B4F8] transition-all duration-200"
@@ -72,23 +72,16 @@ const Footer = () => {
           <FaFacebookF />
         </Link>
         <Link
-          href="https://instagram.com"
+          href="https://www.instagram.com/dr.mehmetilteberbahadir/"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-[#25B4F8] transition-all duration-200"
         >
           <FaInstagram />
         </Link>
+
         <Link
-          href="https://twitter.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-[#25B4F8] transition-all duration-200"
-        >
-          <FaTwitter />
-        </Link>
-        <Link
-          href="https://youtube.com"
+          href="https://www.youtube.com/@DrMehmet%C4%B0lteberBahadir"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-[#25B4F8] transition-all duration-200"

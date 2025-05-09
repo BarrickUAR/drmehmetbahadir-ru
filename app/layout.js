@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Topbar from "@/components/Topbar";
 import WhatsappIcon from "@/components/WhatsappIcon";
 import Popup from "@/components/Popup";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const lora = Lora({
   subsets: ["latin"],
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
       <head />
       <body className={`${lora.variable} flex flex-col min-h-screen`}>
         <Popup />
+        <ScrollToTop />
         <Topbar />
         <WhatsappIcon />
         <Navbar />

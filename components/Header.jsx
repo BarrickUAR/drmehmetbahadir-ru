@@ -13,8 +13,8 @@ const Header = () => {
     { label: "О нас", href: "/about" }, // About
     { label: "Контакты", href: "/contact" }, // Contact
     { label: "Услуги", href: "/diseases" }, // Diseases
-    { label: "Контакты", href: "/videos" }, // Videos
-    { label: "Блог", href: "/blogs" }, // Blogs
+    { label: "Видео", href: "/videos" }, // Videos
+    { label: "Блог", href: "/blogs" }, // Blog (devre dışı)
     { label: "FAQ", href: "/faq" }, // FAQ
   ];
 
@@ -39,19 +39,28 @@ const Header = () => {
 
       {/* Navigation */}
       <nav className="flex flex-col gap-8 w-full text-center">
-        {navItems.map(({ label, href }) => (
-          <Link
-            key={href}
-            href={href}
-            className={`text-lg font-medium transition-all duration-200 ${
-              pathname === href
-                ? "border-x-2 border-[#25B4F8] opacity-100"
-                : "opacity-80 hover:underline hover:opacity-100"
-            }`}
-          >
-            {label}
-          </Link>
-        ))}
+        {navItems.map(({ label, href }) => {
+          const isBlog = href === "/blogs";
+
+          return (
+            <Link
+              key={href}
+              href={isBlog ? "#" : href}
+              className={`text-lg font-medium transition-all duration-200 ${
+                pathname === href
+                  ? "border-x-2 border-[#25B4F8] opacity-100"
+                  : "opacity-80 hover:underline hover:opacity-100"
+              } ${
+                isBlog
+                  ? "pointer-events-none cursor-not-allowed text-gray-400 opacity-50"
+                  : ""
+              }`}
+              aria-disabled={isBlog}
+            >
+              {label}
+            </Link>
+          );
+        })}
       </nav>
 
       {/* Button */}
