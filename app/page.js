@@ -46,7 +46,6 @@ const reviews = [
 export default function Home() {
   return (
     <React.Fragment>
-
       {/* Hero Section */}
       <section className="containerHome min-h-screen w-full px-0 py-20 bg-white flex  text-white justify-between items-center mb-10  ">
         <div className="wrapper flex flex-col items-center justify-center relative border-t border-b p-5 mx-auto ">
@@ -169,7 +168,7 @@ export default function Home() {
               />
               <div className="relative z-10 flex justify-center items-center h-full">
                 <Image
-                  src="/images/heroimg.jpg"
+                  src="/images/whyus.png"
                   alt="Descriptive"
                   width={700}
                   height={600}
