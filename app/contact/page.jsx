@@ -13,7 +13,19 @@ const ContactPage = () => {
   }, []);
 
   const handlePhoneInput = (e) => {
-    e.target.value = e.target.value.replace(/[^\d+]/g, "");
+    const input = e.target;
+    let value = input.value.replace(/[^\d]/g, ""); // sadece sayılar
+    if (!value.startsWith("7")) {
+      value = "7" + value.replace(/^8/, "");
+    }
+
+    let formatted = "+7 ";
+    if (value.length > 1) formatted += value.substring(1, 4);
+    if (value.length > 4) formatted += " " + value.substring(4, 7);
+    if (value.length > 7) formatted += " " + value.substring(7, 9);
+    if (value.length > 9) formatted += " " + value.substring(9, 11);
+
+    input.value = formatted;
   };
 
   const validate = (name, email, phone) => {
@@ -26,9 +38,9 @@ const ContactPage = () => {
       newErrors.email =
         "Пожалуйста, введите корректный адрес электронной почты.";
     }
-    if (!/^(?:\+7|8)(?:[348]\d{2}|9\d{2})\d{7}$/.test(phone)) {
+    if (!/^\+7\s\d{3}\s\d{3}\s\d{2}\s\d{2}$/.test(phone)) {
       newErrors.phone =
-        "Введите российский номер телефона, начинающийся с +7 или 8 (например, +79211234567).";
+        "Введите корректный номер в формате +7 XXX XXX XX XX.";
     }
     return newErrors;
   };
@@ -44,9 +56,7 @@ const ContactPage = () => {
     const validationErrors = validate(name, email, phone);
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
-      setResponseMessage(
-        "❗ Пожалуйста, проверьте правильность заполнения полей."
-      );
+      setResponseMessage("❗ Пожалуйста, проверьте правильность заполнения полей.");
       return;
     }
 
@@ -60,15 +70,11 @@ const ContactPage = () => {
         phone,
         message,
       });
-      setResponseMessage(
-        "✅ Ваша запись успешно создана. Мы скоро свяжемся с вами."
-      );
+      setResponseMessage("✅ Ваша запись успешно создана. Мы скоро свяжемся с вами.");
       form.reset();
     } catch (error) {
       console.error("EmailJS Error:", error);
-      setResponseMessage(
-        "❌ Произошла ошибка при отправке. Пожалуйста, попробуйте позже."
-      );
+      setResponseMessage("❌ Произошла ошибка при отправке. Пожалуйста, попробуйте позже.");
     }
   };
 
@@ -79,6 +85,7 @@ const ContactPage = () => {
       </h1>
 
       <section className="w-full flex flex-col lg:flex-row gap-10 justify-between items-start bg-gray-100 p-5 rounded-lg">
+        {/* MAP */}
         <div className="w-full lg:w-1/2 h-[300px] sm:h-[400px] lg:h-[600px]">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d376.3412762727412!2d28.89898311978924!3d41.009277887105284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sdr%20mehmet%20ilteber%20bahad%C4%B1r!5e0!3m2!1str!2str!4v1741003329924!5m2!1str!2str"
@@ -91,6 +98,7 @@ const ContactPage = () => {
           ></iframe>
         </div>
 
+        {/* FORM */}
         <div className="w-full lg:w-1/2">
           <h2 className="text-2xl font-bold text-center text-sky-600 mb-6">
             Оставить заявку на приём
@@ -124,8 +132,8 @@ const ContactPage = () => {
               <input
                 type="tel"
                 name="phone"
-                placeholder="Телефон"
-                maxLength="15"
+                placeholder="+7 XXX XXX XX XX"
+                maxLength="18"
                 onInput={handlePhoneInput}
                 className="w-full border p-2 rounded"
                 required
@@ -154,6 +162,7 @@ const ContactPage = () => {
         </div>
       </section>
 
+      {/* Contact Cards */}
       <div className="w-full py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
         <a
           href="mailto:randevu@drmehmetilteberbahadir.net"
