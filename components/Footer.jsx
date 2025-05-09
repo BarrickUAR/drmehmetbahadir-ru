@@ -11,10 +11,12 @@ const Footer = () => {
 
   const navItems = [
     { label: "Главная", href: "/" }, // Home
-    { label: "Услуги", href: "/services" }, // Services
-    { label: "Блог", href: "/blogs" }, // Blogs
     { label: "О нас", href: "/about" }, // About
     { label: "Контакты", href: "/contact" }, // Contact
+    { label: "Услуги", href: "/diseases" }, // Diseases
+    { label: "Контакты", href: "/videos" }, // Videos
+    { label: "Блог", href: "/blogs" }, // Blogs
+    { label: "FAQ", href: "/faq" }, // FAQ
   ];
 
   return (

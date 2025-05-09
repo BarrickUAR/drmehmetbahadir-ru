@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import Navbar from "@/components/Navbar";
 import { FaPhone, FaArrowRight } from "react-icons/fa";
 import { MdVerifiedUser } from "react-icons/md";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,6 +11,9 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import Link from "next/link";
+import { animate } from "animejs";
+import TextReveal from "@/components/TextReveal";
+import Topbar from "@/components/Topbar";
 
 const reviews = [
   {
@@ -42,13 +46,14 @@ const reviews = [
 export default function Home() {
   return (
     <React.Fragment>
+
       {/* Hero Section */}
       <section className="containerHome min-h-screen w-full px-0 py-20 bg-white flex  text-white justify-between items-center mb-10  ">
         <div className="wrapper flex flex-col items-center justify-center relative border-t border-b p-5 mx-auto ">
           <div className="text-center flex flex-col items-center justify-center  ">
-            <h1 className="mb-3 font-extrabold">
-              Get ready for your best ever Dental Experience!
-            </h1>
+            <div>
+              <TextReveal text="Dr. Mehmet Ilteber BAHADIR" />
+            </div>
             <p className="text-lg font-extrabold">
               В нашей клинике проводится лечение следующих заболеваний: псориаз,
               экзема, себорейный дерматит, лишай, ихтиоз
@@ -83,145 +88,99 @@ export default function Home() {
       {/* Hero Section */}
 
       {/* Testimonial Section */}
-      <section className="testimonialSection flex justify-center items-center mx-auto mb-20 p-20">
+      <section className="testimonialSection flex justify-center items-center mx-auto mb-20 px-4 py-10 md:p-20">
         <div className="flex flex-col gap-20 w-full">
+          {/* İlk blok */}
           <div className="wrapper flex flex-col md:flex-row justify-center items-center gap-10">
             {/* Sol metin */}
-            <div className="testimonalLeft border-l-2 border-r-2 border-sky-500 p-10">
-              <div className="text-start max-w-[600px] mx-auto">
+            <div className="testimonalLeft border-l-2 border-r-2 border-sky-500 p-6 md:p-10 w-full md:max-w-[600px]">
+              <div className="text-start">
                 <h1 className="mb-4 text-xl font-bold">О нас.</h1>
                 <p className="text-gray-500 text-justify">
-                  Доктор родился в 1971 году в Анталии. Начальное и среднее
+                  Доктор родился в 1971 году в Анталии. bv Начальное и среднее
                   образование он получил в начальной школе Барбарос (Анталия) и
-                  Анталийской анатолийской школе.
-                  <br />
-                  С 1989 по 1996 год учился в медицинском факультете
-                  Стамбульского университета.
-                  <br />
-                  Он прошел обучение по мезотерапии и озонотерапии в рамках
-                  обучения Министерства здравоохранения.
-                  <br />
-                  Работал в фонде помощи детям с лейкемией и участвовал в
-                  экстренной помощи 112.
-                  <br />
-                  Работал врачом в нескольких частных больницах.
+                  Анталийской анатолийской школе. <br /> <br /> 1989 по 1996 год
+                  учился в медицинском факультете Стамбульского университета.Он
+                  прошел обучение по мезотерапии и озонотерапии в рамках
+                  обучения Министерства здравоохранения. <br /> <br /> Работал в
+                  фонде помощи детям с лейкемией и участвовал в экстренной
+                  помощи 112. Работал врачом в нескольких частных больницах.
                 </p>
               </div>
-
-              <div className="inputForm flex justify-start items-center mt-10 ">
-                <div className="relative">
-                  <FaPhone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
-                  <input
-                    type="tel"
-                    placeholder="Telefon numaranız"
-                    className="pl-10 pr-4 py-3 rounded-l-md border-2 border-gray-300 w-[400px]  focus:outline-none focus:ring-2 focus:ring-sky-400"
-                  />
-                </div>
-                <button className="bg-sky-500 text-white px-6 py-3.5  hover:bg-sky-600 transition-all duration-200">
-                  Submit
-                </button>
+              <div className="aboutBtn flex justify-start items-center mt-10">
+                <Link href="/about" className="btn-primary">
+                  Hakkımızda
+                </Link>
               </div>
             </div>
 
             {/* Sağ görsel */}
-            <div className="testimonalWrapper relative w-[500px] h-[300px] p-5 overflow-hidden">
+            <div className="relative w-full md:w-[500px] h-[300px] sm:h-[400px] p-5 overflow-hidden">
               <Image
                 src="/images/bg-blue.jpg"
-                alt="Descriptive text"
+                alt="Background"
                 fill
                 className="object-cover opacity-80 z-0"
               />
-              <div className="testimonalRight relative z-10 flex justify-center items-center h-full">
+              <div className="relative z-10 flex justify-center items-center h-full">
                 <Image
                   src="/images/heroimg.jpg"
-                  alt="Descriptive text"
+                  alt="Descriptive"
                   width={700}
                   height={600}
-                  className="rounded-lg shadow-lg"
+                  className="rounded-lg shadow-lg max-w-full h-auto"
                 />
               </div>
             </div>
           </div>
 
-          <div className="wrapper flex flex-col md:flex-row-reverse justify-center items-center gap-10 ">
+          {/* İkinci blok */}
+          <div className="wrapper flex flex-col md:flex-row-reverse justify-center items-center gap-10">
             {/* Sağ metin */}
-            <div className="testimonalLeft flex flex-col justify-start border-sky-500 p-10 ">
-              <div className="text-start">
-                <h1 className="mb-4 text-center"> Почему мы?</h1>
-              </div>
-              <div className="listItems flex justify-start items-center mt-10 gap-2 ">
-                <ol className="mb-10">
-                  <li className="flex items-center gap-2 text-2xl">
-                    <MdVerifiedUser className="text-sky-600" />
-                    <span className="text-gray-600">
-                      Наши методы лечения не имеют побочных эффектов
-                    </span>
+            <div className="testimonalLeft flex flex-col justify-start border-sky-500 p-6 md:p-10 w-full md:max-w-[600px]">
+              <h1 className="mb-4 text-center text-xl font-bold">Почему мы?</h1>
+              <ol className="mb-10 mt-6 flex flex-col gap-4">
+                {[
+                  "Наши методы лечения не имеют побочных эффектов",
+                  "Мы не оставляем ни одного пациента без улучшений.",
+                  "Мы проводим контроль за состоянием пациента в течение 2 лет.",
+                  "Мы делаем акцент на пробиотиках в наших диетах.",
+                  "Мы предоставляем поддержку через Whatsapp для пациентов, живущих вдали.",
+                  "Мы предлагаем лечение без кортизона.",
+                ].map((text, i) => (
+                  <li key={i} className="flex items-start gap-2 text-lg">
+                    <MdVerifiedUser className="text-sky-600 mt-1" />
+                    <span className="text-gray-600">{text}</span>
                   </li>
-
-                  <li className="flex items-center gap-2 text-2xl">
-                    <MdVerifiedUser className="text-sky-600" />
-                    <span className="text-gray-600">
-                      Мы не оставляем ни одного пациента без улучшений.
-                    </span>
-                  </li>
-
-                  <li className="flex items-center gap-2 text-2xl">
-                    <MdVerifiedUser className="text-sky-600" />
-                    <span className="text-gray-600">
-                      Мы проводим контроль за состоянием пациента в течение 2
-                      лет.
-                    </span>
-                  </li>
-
-                  <li className="flex items-center gap-2 text-2xl">
-                    <MdVerifiedUser className="text-sky-600" />
-                    <span className="text-gray-600">
-                      Мы делаем акцент на пробиотиках в наших диетах.
-                    </span>
-                  </li>
-
-                  <li className="flex items-center gap-2 text-2xl">
-                    <MdVerifiedUser className="text-sky-600" />
-                    <span className="text-gray-600">
-                      Мы предоставляем поддержку через Whatsapp для пациентов,
-                      живущих вдали.
-                    </span>
-                  </li>
-
-                  <li className="flex items-center gap-2 text-2xl">
-                    <MdVerifiedUser className="text-sky-600" />
-                    <span className="text-gray-600 ">
-                      Мы предлагаем лечение без кортизона.
-                    </span>
-                  </li>
-                </ol>
-              </div>
+                ))}
+              </ol>
               <Link href="/contact" className="btn-primary text-center">
                 Записаться на приём
               </Link>
             </div>
 
             {/* Sol görsel */}
-            <div className="relative w-[500px] h-[300px] p-5 overflow-hidden">
+            <div className="relative w-full md:w-[500px] h-[300px] sm:h-[400px] p-5 overflow-hidden">
               <Image
                 src="/images/bg-blue.jpg"
-                alt="Descriptive text"
+                alt="Background"
                 fill
                 className="object-cover opacity-80 z-0"
               />
-              <div className="testimonalRight relative z-10 flex justify-center items-center h-full">
+              <div className="relative z-10 flex justify-center items-center h-full">
                 <Image
                   src="/images/heroimg.jpg"
-                  alt="Descriptive text"
+                  alt="Descriptive"
                   width={700}
                   height={600}
-                  className="rounded-lg shadow-lg"
+                  className="rounded-lg shadow-lg max-w-full h-auto"
                 />
               </div>
             </div>
           </div>
         </div>
       </section>
+
       {/* Testimonial Section */}
 
       {/* Service Section */}
@@ -230,7 +189,7 @@ export default function Home() {
       </h1>
       <section className="serviceSection p-20">
         <Swiper
-          slidesPerView={6}
+          slidesPerView={2}
           spaceBetween={10}
           freeMode={true}
           pagination={{ clickable: true }}
@@ -317,7 +276,7 @@ export default function Home() {
             },
           ].map((item, i) => (
             <SwiperSlide key={i}>
-              <div className="bg-white rounded-lg shadow-lg p-5 h-full flex flex-col items-center justify-between hover:scale-105 transition-all duration-200 cursor-pointer">
+              <div className="bg-white rounded-lg shadow-lg p-10 h-full flex flex-col items-center justify-between hover:scale-105 transition-all duration-200 cursor-pointer">
                 <Image
                   src={item.src}
                   className="mx-auto mb-5 mt-3 rounded-xl"

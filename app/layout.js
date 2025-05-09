@@ -2,6 +2,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "../styles/globals.css";
 import { Lora } from "next/font/google";
+import Navbar from "@/components/Navbar";
+import Topbar from "@/components/Topbar";
 
 const lora = Lora({
   subsets: ["latin"],
@@ -25,15 +27,15 @@ export default function RootLayout({ children }) {
           href="https://fonts.gstatic.com"
           crossOrigin="true"
         />
-        {/* Font link moved to pages/_document.js */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
           crossOrigin="true"
         />
-        {/* Font link moved to pages/_document.js */}
       </head>
+      <Navbar />
+      <Topbar />
       <body className="flex flex-col min-h-screen">
         <Header />
         <main className="flex-grow">{children}</main>

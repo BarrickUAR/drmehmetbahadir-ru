@@ -10,17 +10,19 @@ const Header = () => {
 
   const navItems = [
     { label: "Главная", href: "/" }, // Home
-    { label: "Услуги", href: "/services" }, // Services
-    { label: "Блог", href: "/blogs" }, // Blogs
     { label: "О нас", href: "/about" }, // About
     { label: "Контакты", href: "/contact" }, // Contact
+    { label: "Услуги", href: "/diseases" }, // Diseases
+    { label: "Контакты", href: "/videos" }, // Videos
+    { label: "Блог", href: "/blogs" }, // Blogs
+    { label: "FAQ", href: "/faq" }, // FAQ
   ];
 
   return (
     <header
-      className="fixed top-50 right-0 h-3/6 w-[200px] z-50 border-t-3
+      className="hidden md:flex fixed top-50 right-0 h-3/6 w-[200px] z-50 border-t-3
      border-b-3 border-sky-500 bg-[#67636281] opacity-85 text-white 
-     flex flex-col items-center py-10 px-6 shadow-lg"
+     flex-col items-center py-10 px-6 shadow-lg"
     >
       {/* Logo */}
       <div className="mb-10">
