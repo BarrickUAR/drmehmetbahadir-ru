@@ -26,13 +26,15 @@ const Header = () => {
     >
       {/* Logo */}
       <div className="mb-10">
-        <Image
-          src="/images/logo-white.png"
-          alt="Логотип"
-          width={120}
-          height={80}
-          className="cursor-pointer"
-        />
+        <Link href={"/"}>
+          <Image
+            src="/images/logo-white.png"
+            alt="Логотип"
+            width={120}
+            height={80}
+            className="cursor-pointer"
+          />
+        </Link>
       </div>
 
       {/* Navigation */}

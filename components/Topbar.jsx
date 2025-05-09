@@ -1,9 +1,15 @@
 import React from "react";
-import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaYoutube,
+  FaEnvelope,
+  FaPhoneAlt,
+} from "react-icons/fa";
 
 const Topbar = () => {
   return (
-    <div className="topBar fixed top-0 left-0 w-full h-[40px] bg-gray-600 bg-opacity-90 text-white z-50">
+    <div className="topBar desktop-only fixed top-0 left-0 w-full h-[40px] bg-gray-600 bg-opacity-90 text-white z-50">
       <div className="max-w-7xl mx-auto h-full flex items-center justify-between px-4">
         {/* Sol taraf: Doktor adı */}
         <div className="text-sm font-medium whitespace-nowrap">
@@ -40,11 +46,27 @@ const Topbar = () => {
           </a>
         </div>
 
-        {/* Sağ taraf: Telefon & Buton */}
+        {/* Sağ taraf: E-posta, Telefon & Buton */}
         <div className="flex items-center gap-4 text-sm whitespace-nowrap">
-          <a href="tel:+905555555555" className="hover:underline">
+          {/* Mail */}
+          <a
+            href="mailto:randevu@drmehmetilteberbahadir.net"
+            className="hover:underline hidden md:flex items-center gap-1"
+          >
+            <FaEnvelope className="text-base" />
+            randevu@drmehmetilteberbahadir.net
+          </a>
+
+          {/* Telefon */}
+          <a
+            href="tel:+905555555555"
+            className="hover:underline flex items-center gap-1"
+          >
+            <FaPhoneAlt className="text-base" />
             +90 (552) 753 34 64
           </a>
+
+          {/* Randevu Butonu */}
           <a href="/contact" className="btn-primary px-3 py-1 text-sm">
             Запись
           </a>

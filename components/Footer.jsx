@@ -24,13 +24,15 @@ const Footer = () => {
       <div className="wrapper max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 border-b-2 pb-5">
         {/* Logo */}
         <div className="mb-6 md:mb-0">
-          <Image
-            src="/images/logo.png"
-            alt="Footer Logo"
-            width={120}
-            height={80}
-            className="cursor-pointer"
-          />
+          <Link href={"/"}>
+            <Image
+              src="/images/logo.png"
+              alt="Логотип"
+              width={120}
+              height={80}
+              className="cursor-pointer"
+            />
+          </Link>
         </div>
 
         {/* Navigation */}

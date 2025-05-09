@@ -4,6 +4,8 @@ import "../styles/globals.css";
 import { Lora } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Topbar from "@/components/Topbar";
+import WhatsappIcon from "@/components/WhatsappIcon";
+import Popup from "@/components/Popup";
 
 const lora = Lora({
   subsets: ["latin"],
@@ -14,29 +16,18 @@ const lora = Lora({
 
 export const metadata = {
   title: "Dr. Mehmet İlteber Bahadır",
-  description: "",
+  description: "Клиника лечения псориаза и кожных заболеваний",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="true"
-        />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="true"
-        />
-      </head>
-      <Navbar />
-      <Topbar />
-      <body className="flex flex-col min-h-screen">
+    <html lang="ru">
+      <head />
+      <body className={`${lora.variable} flex flex-col min-h-screen`}>
+        <Popup />
+        <Topbar />
+        <WhatsappIcon />
+        <Navbar />
         <Header />
         <main className="flex-grow">{children}</main>
         <Footer />
