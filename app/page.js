@@ -14,6 +14,7 @@ import Link from "next/link";
 import { animate } from "animejs";
 import TextReveal from "@/components/TextReveal";
 import Topbar from "@/components/Topbar";
+import { useRouter } from "next/navigation";
 
 const reviews = [
   {
@@ -43,7 +44,99 @@ const reviews = [
   },
 ];
 
-export default function Home() {
+export default function ServiceSection() {
+  const router = useRouter();
+
+  const handleCardClick = (id) => {
+    router.push(`/diseases?acil=${id}`);
+  };
+  const services = [
+    {
+      id: "psoriasis",
+      src: "/images/sedef.jpg",
+      title: "Псориаз",
+      description:
+        "Псориаз — это хроническое кожное заболевание, характеризующееся покраснением и шелушением.",
+    },
+    {
+      id: "eczema",
+      src: "/images/egzama.jpg",
+      title: "Экзема",
+      description:
+        "Экзема вызывает воспаление кожи, сопровождающееся зудом, трещинами и сухостью.",
+    },
+    {
+      id: "acne",
+      src: "/images/akne.jpg",
+      title: "Проблема акне",
+      description:
+        "Акне — это распространённое заболевание кожи, особенно в подростковом возрасте.",
+    },
+    {
+      id: "ichthyosis",
+      src: "/images/iktiyoz.jpg",
+      title: "Ихтиоз",
+      description:
+        "Ихтиоз характеризуется чрезмерным ороговением и сухостью кожи.",
+    },
+    {
+      id: "lichen",
+      src: "/images/liken.jpg",
+      title: "Лишай планус",
+      description:
+        "Лишай планус вызывает фиолетовые, зудящие высыпания на коже и слизистых.",
+    },
+    {
+      id: "ankylosing",
+      src: "/images/ankilozan.jpg",
+      title: "Анкилозирующий спондилит",
+      description:
+        "Хроническое воспаление позвоночника, вызывающее скованность и боль в спине.",
+    },
+    {
+      id: "hashimoto",
+      src: "/images/romatizma.jpg",
+      title: "Тиреоидит Хашимото",
+      description:
+        "Аутоиммунное заболевание щитовидной железы, приводящее к гипотиреозу.",
+    },
+    {
+      id: "cardio",
+      src: "/images/haşimato.jpg",
+      title: "Сердечно-сосудистые заболевания",
+      description:
+        "Группа заболеваний сердца и сосудов, включая гипертонию и инфаркт.",
+    },
+    {
+      id: "alzheimer",
+      src: "/images/kalp.jpg",
+      title: "Болезнь Альцгеймера",
+      description:
+        "Неврологическое расстройство, ведущее к ухудшению памяти и когнитивных функций.",
+    },
+    {
+      id: "autism",
+      src: "/images/beyin.jpg",
+      title: "Аутизм",
+      description:
+        "Аутизм влияет на развитие общения, поведения и социального взаимодействия.",
+    },
+    {
+      id: "sexual",
+      src: "/images/otizm.jpg",
+      title: "Половое здоровье",
+      description:
+        "Важный аспект общего здоровья, включающий репродуктивное и сексуальное благополучие.",
+    },
+    {
+      id: "cancer",
+      src: "/images/cinsellik.jpg",
+      title: "Рак",
+      description:
+        "Онкологическое заболевание, характеризующееся аномальным ростом клеток.",
+    },
+  ];
+
   return (
     <React.Fragment>
       {/* Hero Section */}
@@ -85,7 +178,6 @@ export default function Home() {
         </div>
       </section>
       {/* Hero Section */}
-
       {/* Testimonial Section */}
       <section className="testimonialSection flex justify-center items-center mx-auto mb-20 px-4 py-10 md:p-20">
         <div className="flex flex-col gap-20 w-full">
@@ -179,10 +271,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Testimonial Section */}
-
-      {/* Service Section */}
+      {/* Service Section */},
       <h1 className="text-center p-10 mt-10 border-l-4 border-r-4 mb-20 border-sky-400 w-fit mx-auto text-2xl font-bold text-sky-500">
         Наши услуги
       </h1>
@@ -200,86 +290,16 @@ export default function Home() {
             1024: { slidesPerView: 3 },
           }}
         >
-          {[
-            {
-              src: "/images/sedef.jpg",
-              title: "Псориаз",
-              description:
-                "Псориаз — это хроническое кожное заболевание, характеризующееся покраснением и шелушением.",
-            },
-            {
-              src: "/images/egzama.jpg",
-              title: "Экзема",
-              description:
-                "Экзема вызывает воспаление кожи, сопровождающееся зудом, трещинами и сухостью.",
-            },
-            {
-              src: "/images/akne.jpg",
-              title: "Проблема акне",
-              description:
-                "Акне — это распространённое заболевание кожи, особенно в подростковом возрасте.",
-            },
-            {
-              src: "/images/iktiyoz.jpg",
-              title: "Ихтиоз",
-              description:
-                "Ихтиоз характеризуется чрезмерным ороговением и сухостью кожи.",
-            },
-            {
-              src: "/images/liken.jpg",
-              title: "Лишай планус",
-              description:
-                "Лишай планус вызывает фиолетовые, зудящие высыпания на коже и слизистых.",
-            },
-            {
-              src: "/images/ankilozan.jpg",
-              title: "Анкилозирующий спондилит",
-              description:
-                "Хроническое воспаление позвоночника, вызывающее скованность и боль в спине.",
-            },
-            {
-              src: "/images/romatizma.jpg",
-              title: "Тиреоидит Хашимото",
-              description:
-                "Аутоиммунное заболевание щитовидной железы, приводящее к гипотиреозу.",
-            },
-            {
-              src: "/images/haşimato.jpg",
-              title: "Сердечно-сосудистые заболевания",
-              description:
-                "Группа заболеваний сердца и сосудов, включая гипертонию и инфаркт.",
-            },
-            {
-              src: "/images/kalp.jpg",
-              title: "Болезнь Альцгеймера",
-              description:
-                "Неврологическое расстройство, ведущее к ухудшению памяти и когнитивных функций.",
-            },
-            {
-              src: "/images/beyin.jpg",
-              title: "Аутизм",
-              description:
-                "Аутизм влияет на развитие общения, поведения и социального взаимодействия.",
-            },
-            {
-              src: "/images/otizm.jpg",
-              title: "Половое здоровье",
-              description:
-                "Важный аспект общего здоровья, включающий репродуктивное и сексуальное благополучие.",
-            },
-            {
-              src: "/images/cinsellik.jpg",
-              title: "Рак",
-              description:
-                "Онкологическое заболевание, характеризующееся аномальным ростом клеток.",
-            },
-          ].map((item, i) => (
+          {services.map((item, i) => (
             <SwiperSlide key={i}>
-              <div className="bg-white rounded-lg shadow-lg p-10 h-full flex flex-col items-center justify-between hover:scale-105 transition-all duration-200 cursor-pointer">
+              <div
+                onClick={() => handleCardClick(item.id)}
+                className="bg-white rounded-lg shadow-lg p-10 h-full flex flex-col items-center justify-between hover:scale-105 transition-all duration-200 cursor-pointer"
+              >
                 <Image
                   src={item.src}
                   className="mx-auto mb-5 mt-3 rounded-xl"
-                  alt="image"
+                  alt={item.title}
                   width={300}
                   height={300}
                 />
@@ -288,9 +308,9 @@ export default function Home() {
                   <p className="text-sm">{item.description}</p>
                 </div>
                 <div className="flex items-center gap-1 mx-auto mt-5">
-                  <a className="hover:underline hover:opacity-100" href="#">
+                  <span className="hover:underline hover:opacity-100">
                     Learn More
-                  </a>
+                  </span>
                   <FaArrowRight />
                 </div>
               </div>
@@ -343,7 +363,6 @@ export default function Home() {
         Посмотреть все отзывы на Google →
       </a>
       {/* Happy Clients Section */}
-
       {/* Videos Section */}
       <section className="py-20 px-5 bg-gray-50">
         <h2 className="text-center text-2xl font-bold text-sky-600 mb-10">
