@@ -16,14 +16,19 @@ const lora = Lora({
 });
 
 export const metadata = {
-  title: "Dr. Mehmet İlteber Bahadır",
-  description: "Клиника лечения псориаза и кожных заболеваний",
+  title: "Др. Мехмет Илтебер Бахадир",
+  description:
+    "Клиника лечения псориаза и других кожных заболеваний. Индивидуальный подход, проверенные методы и забота о каждом пациенте.",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="ru">
-      <head />
+      <head>
+        <link rel="icon" href="/favicon.png" type="image/png" />{" "}
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
       <body className={`${lora.variable} flex flex-col min-h-screen`}>
         <Popup />
         <ScrollToTop />
