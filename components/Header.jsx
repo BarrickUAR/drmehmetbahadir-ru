@@ -46,7 +46,7 @@ const Header = () => {
             <Link
               key={href}
               href={isBlog ? "#" : href}
-              className={`text-lg font-medium transition-all duration-200 ${
+              className={`text-lg font-medium transition-all duration-200  ${
                 pathname === href
                   ? "border-x-2 border-[#25B4F8] opacity-100"
                   : "opacity-80 hover:underline hover:opacity-100"
