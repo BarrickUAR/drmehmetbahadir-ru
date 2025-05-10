@@ -94,14 +94,14 @@ export default function ServiceSection() {
         "Хроническое воспаление позвоночника, вызывающее скованность и боль в спине.",
     },
     {
-      id: "hashimoto",
+      id: "rheumatism",
       src: "/images/romatizma.jpg",
       title: "Тиреоидит Хашимото",
       description:
         "Аутоиммунное заболевание щитовидной железы, приводящее к гипотиреозу.",
     },
     {
-      id: "cardio",
+      id: "hashimoto",
       src: "/images/haşimato.jpg",
       title: "Сердечно-сосудистые заболевания",
       description:
@@ -150,7 +150,7 @@ export default function ServiceSection() {
               В нашей клинике проводится лечение следующих заболеваний: псориаз,
               экзема, себорейный дерматит, лишай, ихтиоз
               <br />и ревматические заболевания (остеоартрит, анкилозирующий
-              спондилит, системная красная волчанка, тиреоидит Хашимото).
+              спондилит, тиреоидит Хашимото).
             </p>
           </div>
           <div className="flex gap-4 mt-10">
@@ -178,6 +178,7 @@ export default function ServiceSection() {
         </div>
       </section>
       {/* Hero Section */}
+
       {/* Testimonial Section */}
       <section className="testimonialSection flex justify-center items-center mx-auto mb-20 px-4 py-10 md:p-20">
         <div className="flex flex-col gap-20 w-full">
@@ -188,7 +189,7 @@ export default function ServiceSection() {
               <div className="text-start">
                 <h1 className="mb-4 text-xl font-bold">О нас.</h1>
                 <p className="text-gray-500 text-justify">
-                  Доктор родился в 1971 году в Анталии. bv Начальное и среднее
+                  Доктор родился в 1971 году в Анталии. Начальное и среднее
                   образование он получил в начальной школе Барбарос (Анталия) и
                   Анталийской анатолийской школе. <br /> <br /> 1989 по 1996 год
                   учился в медицинском факультете Стамбульского университета.Он
@@ -228,27 +229,21 @@ export default function ServiceSection() {
           {/* İkinci blok */}
           <div className="wrapper flex flex-col md:flex-row-reverse justify-center items-center gap-10">
             {/* Sağ metin */}
-            <div className="testimonalLeft flex flex-col justify-start border-sky-500 p-6 md:p-10 w-full md:max-w-[600px]">
-              <h1 className="mb-4 text-center text-xl font-bold">Почему мы?</h1>
-              <ol className="mb-10 mt-6 flex flex-col gap-4">
-                {[
-                  "Наши методы лечения не имеют побочных эффектов",
-                  "Мы не оставляем ни одного пациента без улучшений.",
-                  "Мы проводим контроль за состоянием пациента в течение 2 лет.",
-                  "Мы делаем акцент на пробиотиках в наших диетах.",
-                  "Мы предоставляем поддержку через Whatsapp для пациентов, живущих вдали.",
-                  "Мы предлагаем лечение без кортизона.",
-                ].map((text, i) => (
-                  <li key={i} className="flex items-start gap-2 text-lg">
-                    <MdVerifiedUser className="text-sky-600 mt-1" />
-                    <span className="text-gray-600">{text}</span>
-                  </li>
-                ))}
-              </ol>
-              <Link href="/contact" className="btn-primary text-center">
-                Записаться на приём
-              </Link>
-            </div>
+            <ol className="mb-10 mt-6 flex flex-col gap-5">
+              {[
+                "Наши методы лечения не имеют побочных эффектов",
+                "Мы не оставляем ни одного пациента без улучшений.",
+                "Мы проводим контроль за состоянием пациента в течение 2 лет.",
+                "Мы делаем акцент на пробиотиках в наших диетах.",
+                "Мы предоставляем поддержку через Whatsapp для пациентов, живущих вдали.",
+                "Мы предлагаем лечение без кортизона.",
+              ].map((text, i) => (
+                <li key={i} className="flex items-start gap-3 text-lg">
+                  <MdVerifiedUser className="text-sky-600 text-xl flex-shrink-0 mt-1" />
+                  <span className="text-gray-600">{text}</span>
+                </li>
+              ))}
+            </ol>
 
             {/* Sol görsel */}
             <div className="relative w-full md:w-[500px] h-[300px] sm:h-[400px] p-5 overflow-hidden">
@@ -272,7 +267,8 @@ export default function ServiceSection() {
         </div>
       </section>
       {/* Testimonial Section */}
-      {/* Service Section */},
+
+      {/* Service Section */}
       <h1 className="text-center p-10 mt-10 border-l-4 border-r-4 mb-20 border-sky-400 w-fit mx-auto text-2xl font-bold text-sky-500">
         Наши услуги
       </h1>
@@ -319,6 +315,7 @@ export default function ServiceSection() {
         </Swiper>
       </section>
       {/* Service Section */}
+
       {/* Happy Clients Section */}
       <h1 className="text-center p-10 mt-10 border-l-4 border-r-4 mb-10 border-sky-400 w-fit mx-auto text-2xl font-bold text-sky-500">
         Что говорят наши пациенты?
@@ -363,6 +360,7 @@ export default function ServiceSection() {
         Посмотреть все отзывы на Google →
       </a>
       {/* Happy Clients Section */}
+
       {/* Videos Section */}
       <section className="py-20 px-5 bg-gray-50">
         <h2 className="text-center text-2xl font-bold text-sky-600 mb-10">

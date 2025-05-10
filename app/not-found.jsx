@@ -14,9 +14,12 @@ export default function NotFound() {
         height={1000}
         className="mb-6"
       />
-      <h1 className="text-5xl font-extrabold mb-4">404 - Страница не найдена</h1>
+      <h1 className="text-5xl font-extrabold mb-4">
+        404 - Страница не найдена
+      </h1>
       <p className="text-lg text-gray-400 mb-6">
-        К сожалению, запрашиваемая вами страница не существует. Но не волнуйтесь — наши герои перенаправят вас на главную!
+        К сожалению, запрашиваемая вами страница не существует. Но не волнуйтесь
+        — наши герои перенаправят вас на главную!
       </p>
       <Link
         href="/"

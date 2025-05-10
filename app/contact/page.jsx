@@ -39,8 +39,7 @@ const ContactPage = () => {
         "Пожалуйста, введите корректный адрес электронной почты.";
     }
     if (!/^\+7\s\d{3}\s\d{3}\s\d{2}\s\d{2}$/.test(phone)) {
-      newErrors.phone =
-        "Введите корректный номер в формате +7 XXX XXX XX XX.";
+      newErrors.phone = "Введите корректный номер в формате +7 XXX XXX XX XX.";
     }
     return newErrors;
   };
@@ -56,7 +55,9 @@ const ContactPage = () => {
     const validationErrors = validate(name, email, phone);
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
-      setResponseMessage("❗ Пожалуйста, проверьте правильность заполнения полей.");
+      setResponseMessage(
+        "❗ Пожалуйста, проверьте правильность заполнения полей."
+      );
       return;
     }
 
@@ -70,11 +71,15 @@ const ContactPage = () => {
         phone,
         message,
       });
-      setResponseMessage("✅ Ваша запись успешно создана. Мы скоро свяжемся с вами.");
+      setResponseMessage(
+        "✅ Ваша запись успешно создана. Мы скоро свяжемся с вами."
+      );
       form.reset();
     } catch (error) {
       console.error("EmailJS Error:", error);
-      setResponseMessage("❌ Произошла ошибка при отправке. Пожалуйста, попробуйте позже.");
+      setResponseMessage(
+        "❌ Произошла ошибка при отправке. Пожалуйста, попробуйте позже."
+      );
     }
   };
 
