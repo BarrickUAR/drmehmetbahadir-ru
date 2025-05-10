@@ -1,10 +1,18 @@
 @import "tailwindcss";
 @import "swiper/css"; /* Swiper ana CSS */
 @import "swiper/css/free-mode"; /* Swiper free-mode modülünün CSS'i */
+@import "react-phone-input-2/lib/style.css";
 /* ... diğer global stil içerikleri ... */
 
 html {
   font-family: "Lora", serif;
+}
+
+.react-tel-input .form-control {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc; /* Adjust border color as needed */
+  border-radius: 0.25rem;
 }
 
 @font-face {

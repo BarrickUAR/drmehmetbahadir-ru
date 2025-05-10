@@ -1,32 +1,19 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 import { FaEnvelope, FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
 
 const ContactPage = () => {
   const formRef = useRef();
   const [responseMessage, setResponseMessage] = useState("");
   const [errors, setErrors] = useState({});
+  const [phone, setPhone] = useState("");
 
   useEffect(() => {
     emailjs.init("AfjNJbvpclsfFJDiK");
   }, []);
-
-  const handlePhoneInput = (e) => {
-    const input = e.target;
-    let value = input.value.replace(/[^\d]/g, ""); // sadece sayılar
-    if (!value.startsWith("7")) {
-      value = "7" + value.replace(/^8/, "");
-    }
-
-    let formatted = "+7 ";
-    if (value.length > 1) formatted += value.substring(1, 4);
-    if (value.length > 4) formatted += " " + value.substring(4, 7);
-    if (value.length > 7) formatted += " " + value.substring(7, 9);
-    if (value.length > 9) formatted += " " + value.substring(9, 11);
-
-    input.value = formatted;
-  };
 
   const validate = (name, email, phone) => {
     const newErrors = {};
@@ -38,8 +25,8 @@ const ContactPage = () => {
       newErrors.email =
         "Пожалуйста, введите корректный адрес электронной почты.";
     }
-    if (!/^\+7\s\d{3}\s\d{3}\s\d{2}\s\d{2}$/.test(phone)) {
-      newErrors.phone = "Введите корректный номер в формате +7 XXX XXX XX XX.";
+    if (!/^\d{10,15}$/.test(phone.replace(/[^\d]/g, ""))) {
+      newErrors.phone = "Пожалуйста, введите корректный номер телефона.";
     }
     return newErrors;
   };
@@ -49,7 +36,6 @@ const ContactPage = () => {
     const form = formRef.current;
     const name = form.name.value.trim();
     const email = form.email.value.trim();
-    const phone = form.phone.value.trim();
     const message = form.message.value.trim();
 
     const validationErrors = validate(name, email, phone);
@@ -75,6 +61,7 @@ const ContactPage = () => {
         "✅ Ваша запись успешно создана. Мы скоро свяжемся с вами."
       );
       form.reset();
+      setPhone("");
     } catch (error) {
       console.error("EmailJS Error:", error);
       setResponseMessage(
@@ -134,14 +121,15 @@ const ContactPage = () => {
               )}
             </div>
             <div>
-              <input
-                type="tel"
-                name="phone"
-                placeholder="+7 XXX XXX XX XX"
-                maxLength="18"
-                onInput={handlePhoneInput}
-                className="w-full border p-2 rounded"
-                required
+              <PhoneInput
+                country={"ru"}
+                value={phone}
+                onChange={setPhone}
+                inputProps={{
+                  name: "phone",
+                  required: true,
+                }}
+                inputClass="!w-full !p-2 !ml-10 !border !rounded"
               />
               {errors.phone && (
                 <small className="text-red-500">{errors.phone}</small>

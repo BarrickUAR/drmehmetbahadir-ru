@@ -10,6 +10,7 @@ export default function AdminSayfasi() {
   const [duzenlenenSlug, setDuzenlenenSlug] = useState(null);
   const [imageUploading, setImageUploading] = useState(false);
   const [arama, setArama] = useState("");
+  const [bildirim, setBildirim] = useState(null);
   const dropRef = useRef();
 
   const [form, setForm] = useState({
@@ -93,9 +94,13 @@ export default function AdminSayfasi() {
     e.preventDefault();
   };
 
+  const gosterBildirim = (mesaj) => {
+    setBildirim(mesaj);
+    setTimeout(() => setBildirim(null), 2000);
+  };
+
   const yaziEkle = async () => {
     if (!form.title || !form.slug) return alert("Başlık ve slug zorunludur.");
-
     const yeniYazi = { ...form, published: true };
 
     const res = await fetch("/api/blogs", {
@@ -116,6 +121,7 @@ export default function AdminSayfasi() {
         category: "",
         published: false,
       });
+      gosterBildirim("✅ Blog eklendi!");
     }
   };
 
@@ -146,6 +152,7 @@ export default function AdminSayfasi() {
       published: false,
     });
     setDuzenlenenSlug(null);
+    gosterBildirim("✏️ Blog güncellendi!");
   };
 
   const yaziSil = async (slug) => {
@@ -159,6 +166,7 @@ export default function AdminSayfasi() {
 
     if (res.ok) {
       setYazilar(yazilar.filter((yazi) => yazi.slug !== slug));
+      gosterBildirim("🗑️ Blog silindi!");
     }
   };
 
@@ -184,6 +192,12 @@ export default function AdminSayfasi() {
 
   return (
     <div className="max-w-6xl mx-auto p-10">
+      {bildirim && (
+        <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-2 rounded mb-6 text-sm text-center">
+          {bildirim}
+        </div>
+      )}
+
       <div className="flex justify-between items-center mb-8 w-full">
         <h1 className="text-3xl font-bold text-sky-700">⚙️ Blog Yönetimi</h1>
         <button onClick={cikisYap} className="text-sm underline text-red-600">
