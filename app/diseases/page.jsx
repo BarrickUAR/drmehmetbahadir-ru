@@ -87,12 +87,12 @@ const DiseasesPage = () => {
   const activeDisease = diseases.find((d) => d.id === activeId);
 
   return (
-    <div className="p-6 sm:p-10 lg:p-20 bg-white ">
-      <h1 className="text-3xl font-bold text-sky-600 text-center mb-10">
+    <div className="p-6 sm:p-10 lg:p-20 bg-white">
+      <h1 className="text-3xl font-bold text-sky-600 text-center mb-10 ">
         Наши заболевания
       </h1>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-10">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-10 px-30">
         {diseases.map((item) => (
           <button
             key={item.id}
