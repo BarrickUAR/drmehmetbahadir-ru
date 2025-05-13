@@ -2,17 +2,15 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import blogData from "@/data/blogs.json"; // JSON'dan veri alıyoruz
 
 export default function BlogPage() {
   const [blogPosts, setBlogPosts] = useState([]);
 
   useEffect(() => {
-    fetch("/api/blogs")
-      .then((res) => res.json())
-      .then((data) => {
-        const publishedOnly = data.filter((item) => item.published);
-        setBlogPosts(publishedOnly);
-      });
+    // Blog verilerini JSON'dan alıyoruz
+    const publishedOnly = blogData.filter((item) => item.published);
+    setBlogPosts(publishedOnly);
   }, []);
 
   return (

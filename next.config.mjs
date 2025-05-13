@@ -1,12 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
   images: {
-    unoptimized: true, // Resim optimizasyonunu kapat
+    unoptimized: true, // Görsellerin optimize edilmeden yüklenmesini sağlar.
   },
-  experimental: {
-    turbo: false,
-  },
+  output: "export", // Statik site oluşturulması için gerekli
 };
 
 export default nextConfig;

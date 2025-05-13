@@ -9,13 +9,13 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { label: "Главная", href: "/" }, // Home
-    { label: "О нас", href: "/about" }, // About
-    { label: "Контакты", href: "/contact" }, // Contact
-    { label: "Услуги", href: "/diseases" }, // Diseases
-    { label: "Контакты", href: "/videos" }, // Videos
-    { label: "Блог", href: "/blogs" }, // Blogs
-    { label: "FAQ", href: "/faq" }, // FAQ
+    { label: "Главная", href: "/" },
+    { label: "О нас", href: "/about" },
+    { label: "Контакты", href: "/contact" },
+    { label: "Услуги", href: "/diseases" },
+    { label: "Видео", href: "/videos" },
+    { label: "Блог", href: "/blogs" }, // Aktif edildi
+    { label: "ЧаВо", href: "/faq" },
   ];
 
   return (
@@ -46,7 +46,7 @@ const Navbar = () => {
               {item.label}
             </Link>
           ))}
-          <button className="btn-primary mt-2">Randevu</button>
+          <button className="btn-primary mt-2">Запись</button>
         </nav>
       )}
     </header>

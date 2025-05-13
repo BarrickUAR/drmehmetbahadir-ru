@@ -10,13 +10,13 @@ const Footer = () => {
   const pathname = usePathname();
 
   const navItems = [
-    { label: "Главная", href: "/" }, // Home
-    { label: "О нас", href: "/about" }, // About
-    { label: "Контакты", href: "/contact" }, // Contact
-    { label: "Услуги", href: "/diseases" }, // Diseases
-    { label: "Контакты", href: "/videos" }, // Videos
-    { label: "Блог", href: "/blogs" }, // Blogs
-    { label: "ЧаВо", href: "/faq" }, // FAQ
+    { label: "Главная", href: "/" },
+    { label: "О нас", href: "/about" },
+    { label: "Контакты", href: "/contact" },
+    { label: "Услуги", href: "/diseases" },
+    { label: "Видео", href: "/videos" },
+    { label: "Блог", href: "/blogs" },
+    { label: "ЧаВо", href: "/faq" },
   ];
 
   return (

@@ -17,6 +17,11 @@ const Popup = () => {
           exit={{ opacity: 0, y: 100 }}
           transition={{ duration: 0.6, type: "spring" }}
           className="fixed bottom-10 left-10 z-50 max-w-sm w-[90%] sm:w-[400px] bg-sky-600 text-white p-6 rounded-2xl shadow-2xl flex justify-between gap-4"
+          style={{
+            backgroundImage: "url('/images/popup-bg2.jpg')", // Arka plan görseli
+            backgroundSize: "cover", // Görselin boyutunu kapsaması için
+            backgroundPosition: "center", // Görselin ortalanması için
+          }}
         >
           <div className="flex-1">
             <h3 className="text-lg font-bold mb-1">Фото до и после</h3>

@@ -93,12 +93,12 @@ const FaqPage = () => {
   );
 
   return (
-    <div className=" w-full px-60 pt-10  mx-auto bg-[#f9f9fb] h-full">
-      <h1 className="text-4xl font-bold text-center mb-10 text-sky-700">
+    <div className="w-full px-4 sm:px-6 md:px-12 lg:px-24 py-10 mx-auto bg-[#f9f9fb]">
+      <h1 className="text-3xl sm:text-4xl font-bold text-center mb-10 text-sky-700">
         Часто задаваемые вопросы
       </h1>
 
-      <div className="mb-12 flex justify-center">
+      <div className="mb-6 flex justify-center">
         <input
           type="text"
           placeholder="Поиск по вопросам..."
@@ -108,7 +108,7 @@ const FaqPage = () => {
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredFaqs.map((faq, index) => (
           <div
             key={index}
@@ -124,7 +124,7 @@ const FaqPage = () => {
               </span>
             </button>
             {activeIndex === index && (
-              <div className="px-6 py-4 text-gray-700 text-base leading-relaxed animate-fade-in">
+              <div className="px-6 py-4 text-gray-700 text-base leading-relaxed">
                 {faq.answer}
               </div>
             )}

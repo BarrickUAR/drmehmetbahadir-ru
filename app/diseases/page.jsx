@@ -1,8 +1,8 @@
-"use client";
+"use client"; // Bu direktif, yalnızca client-side rendering'i etkinleştirir.
 
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation"; // SearchParams'ı doğru import ediyoruz.
 
 const diseases = [
   {
@@ -80,15 +80,22 @@ const diseases = [
 ];
 
 const DiseasesPage = () => {
-  const searchParams = useSearchParams();
-  const defaultId = searchParams.get("disease"); // URL'den hastalık ID'si alınır
-  const [activeId, setActiveId] = useState(defaultId);
+  const [activeId, setActiveId] = useState(null);
+  const [searchParams, setSearchParams] = useState(null);
 
-  const activeDisease = diseases.find((d) => d.id === activeId);
+  useEffect(() => {
+    // Use searchParams only on the client side
+    const params = new URLSearchParams(window.location.search);
+    const disease = params.get("disease"); // URL'den hastalık id'si alınıyor
+    setActiveId(disease); // Aktif hastalığı set ediyoruz
+    setSearchParams(params);
+  }, []); // Yalnızca component mount olduğunda çalışacak
+
+  const activeDisease = diseases.find((d) => d.id === activeId); // Aktif hastalığı buluyoruz
 
   return (
     <div className="p-6 sm:p-10 lg:p-20 bg-white">
-      <h1 className="text-3xl font-bold text-sky-600 text-center mb-10 ">
+      <h1 className="text-3xl font-bold text-sky-600 text-center mb-10">
         Наши заболевания
       </h1>
 
@@ -96,7 +103,7 @@ const DiseasesPage = () => {
         {diseases.map((item) => (
           <button
             key={item.id}
-            onClick={() => setActiveId(item.id)}
+            onClick={() => setActiveId(item.id)} // Handle disease selection
             className={`border rounded-lg p-3 text-sm font-medium transition hover:bg-sky-100 hover:text-sky-600 shadow-sm text-center truncate
               ${
                 activeId === item.id
@@ -109,8 +116,9 @@ const DiseasesPage = () => {
         ))}
       </div>
 
-      {activeDisease && (
-        <div className=" rounded-lg shadow-lg p-2 flex flex-col md:flex-row gap-8 items-center justify-center">
+      {/* Suspense boundary to handle client-side rendering */}
+      <div className="rounded-lg shadow-lg p-2 flex flex-col md:flex-row gap-8 items-center justify-center">
+        {activeDisease && (
           <div className="w-full md:w-2/10">
             <Image
               src={activeDisease.image}
@@ -120,6 +128,9 @@ const DiseasesPage = () => {
               className="rounded-xl w-full h-auto"
             />
           </div>
+        )}
+
+        {activeDisease && (
           <div className="w-full md:w-1/2">
             <h2 className="text-2xl font-bold text-sky-700 mb-4">
               {activeDisease.title}
@@ -128,8 +139,8 @@ const DiseasesPage = () => {
               {activeDisease.description}
             </p>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
