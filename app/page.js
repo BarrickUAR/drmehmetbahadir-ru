@@ -48,7 +48,7 @@ export default function ServiceSection() {
   const router = useRouter();
 
   const handleCardClick = (id) => {
-    router.push(`/diseases?acil=${id}`);
+    router.push(`/diseases?disease=${id}`);
   };
   const services = [
     {
@@ -178,7 +178,6 @@ export default function ServiceSection() {
         </div>
       </section>
       {/* Hero Section */}
-
       {/* Testimonial Section */}
       <section className="testimonialSection flex justify-center items-center mx-auto mb-20 px-4 py-10 md:p-20">
         <div className="flex flex-col gap-20 w-full">
@@ -198,6 +197,14 @@ export default function ServiceSection() {
                   фонде помощи детям с лейкемией и участвовал в экстренной
                   помощи 112. Работал врачом в нескольких частных больницах.
                 </p>
+              </div>
+              <div className="flex items-center text-center mx-auto mt-5 ">
+                <Image
+                  src="/images/sign.png"
+                  alt="Descriptive Alt Text"
+                  width={300}
+                  height={100}
+                />
               </div>
               <div className="aboutBtn flex justify-start items-center mt-10">
                 <Link href="/about" className="btn-primary">
@@ -267,7 +274,96 @@ export default function ServiceSection() {
         </div>
       </section>
       {/* Testimonial Section */}
+      {/* Tratments */}
+      <h1 className="text-center py-4 mt-4 sm:mt-10 border-l-4 border-r-4 border-sky-400 w-fit mx-auto font-bold text-sky-500 text-xl sm:text-2xl mb-10">
+        Наши услуги
+      </h1>
+      <div className="containerTratements w-full bg-gray-200 py-10 px-4 sm:px-6 lg:px-10">
+        <div className="tratementWrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full lg:px-40  ">
+          {/* Card 1 */}
+          <div className="tratementCard cursor-pointer group flex flex-col w-full bg-white rounded-xl shadow-md transition-transform hover:-translate-y-2 hover:scale-[1.01] hover:shadow-xl duration-300 p-4">
+            <Image
+              src="/images/mezoterapi.jpg"
+              alt="Mezoterapi"
+              className="rounded-lg mb-4 w-full max-w-md h-auto mx-auto"
+              width={300}
+              height={300}
+            />
+            <h2 className="text-lg sm:text-xl font-semibold mb-4 text-sky-700">
+              Мезотерапия
+            </h2>
+            <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+              Методика омоложения кожи, повышение ее тонуса и упругости
+              посредством мало дозированного трансдермального введения
+              стимулирующих препаратов.
+              <br />
+              <br />
+              Данные препараты увеличивают эластичность кожи и объем коллагена.
+              Уровень влажности и жира кожи очень важен при заболеваниях кожи.
+              <br />
+              <br />
+              Данный метод используется врачами, получившими квалификацию
+              Министерства здравоохранения.
+            </p>
+          </div>
 
+          {/* Card 2 */}
+          <div className="tratementCard cursor-pointer group flex flex-col w-full bg-white rounded-xl shadow-md transition-transform hover:-translate-y-2 hover:scale-[1.01] hover:shadow-xl duration-300 p-4">
+            <Image
+              src="/images/ozon.jpg"
+              alt="Ozon"
+              className="rounded-lg mb-4 w-full max-w-md h-auto mx-auto"
+              width={300}
+              height={300}
+            />
+            <h2 className="text-lg sm:text-xl font-semibold mb-4 text-sky-700">
+              Озонотерапия
+            </h2>
+            <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+              Метод лечения, который осуществляется за счёт применения газа
+              озона на организм.
+              <br />
+              <br />
+              Очень важна форма применения при заболеваниях кожи. Озонотерапия
+              регулирует иммунную систему (очень часто используется при псориазе
+              и экземе), эффективна при кожных бактериях, грибках и вирусах.
+              <br />
+              <br />
+              Данный метод используется врачами, получившими квалификацию
+              Министерства здравоохранения.
+            </p>
+          </div>
+
+          {/* Card 3 */}
+          <div className="tratementCard cursor-pointer group flex flex-col w-full bg-white rounded-xl shadow-md transition-transform hover:-translate-y-2 hover:scale-[1.01] hover:shadow-xl duration-300 p-4">
+            <Image
+              src="/images/fitoterapi.jpg"
+              alt="Fitoterapi"
+              className="rounded-lg mb-4 w-full max-w-md h-auto mx-auto"
+              width={300}
+              height={300}
+            />
+            <h2 className="text-lg sm:text-xl font-semibold mb-4 text-sky-700">
+              Фитотерапия
+            </h2>
+            <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+              Метод профилактики и лечения различных заболеваний, основанный на
+              использовании лекарственных растений и комплексных препаратов из
+              них.
+              <br />
+              <br />
+              Благодаря фитотерапии, с помощью медицинских препаратов,
+              содержащих растительные масла и экстракты растений, многие
+              заболевания кожи (псориаз, экзема и т. д.) могут находиться в
+              стадии ремиссии.
+              <br />
+              <br />
+              Данный метод используется врачами, получившими квалификацию
+              Министерства здравоохранения.
+            </p>
+          </div>
+        </div>
+      </div>
       {/* Service Section */}
       <h1 className="text-center p-10 mt-10 border-l-4 border-r-4 mb-20 border-sky-400 w-fit mx-auto text-2xl font-bold text-sky-500">
         Наши услуги
@@ -315,7 +411,6 @@ export default function ServiceSection() {
         </Swiper>
       </section>
       {/* Service Section */}
-
       {/* Happy Clients Section */}
       <h1 className="text-center p-10 mt-10 border-l-4 border-r-4 mb-10 border-sky-400 w-fit mx-auto text-2xl font-bold text-sky-500">
         Что говорят наши пациенты?
@@ -360,7 +455,6 @@ export default function ServiceSection() {
         Посмотреть все отзывы на Google →
       </a>
       {/* Happy Clients Section */}
-
       {/* Videos Section */}
       <section className="py-20 px-5 bg-gray-50">
         <h2 className="text-center text-2xl font-bold text-sky-600 mb-10">

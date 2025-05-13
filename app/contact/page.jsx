@@ -91,7 +91,7 @@ const ContactPage = () => {
         </div>
 
         {/* FORM */}
-        <div className="w-full lg:w-1/2">
+        <div className="w-full lg:w-2/4">
           <h2 className="text-2xl font-bold text-center text-sky-600 mb-6">
             Оставить заявку на приём
           </h2>
@@ -120,19 +120,33 @@ const ContactPage = () => {
                 <small className="text-red-500">{errors.email}</small>
               )}
             </div>
-            <div>
+            <div className="relative">
               <PhoneInput
-                country={"ru"}
+                country={""}
                 value={phone}
-                onChange={setPhone}
+                onChange={(value, country, e, formattedValue) => {
+                  // Eğer kullanıcı tamamen silmeye çalışırsa, yine de ülke kodu kalsın
+                  const countryCode = country?.dialCode || "";
+                  if (!value.startsWith(countryCode)) {
+                    setPhone(`+${countryCode}`);
+                  } else {
+                    setPhone(value);
+                  }
+                }}
                 inputProps={{
                   name: "phone",
                   required: true,
                 }}
-                inputClass="!w-full !p-2 !ml-10 !border !rounded"
+                inputClass={`!w-full !p-2 !pl-12 !rounded ${
+                  errors.phone ? "!border-red-500" : "!border-gray-300"
+                }`}
+                containerClass="!w-full"
+                buttonClass="!border !border-r-0 !rounded-l !bg-white"
               />
               {errors.phone && (
-                <small className="text-red-500">{errors.phone}</small>
+                <small className="text-red-500 block mt-1">
+                  {errors.phone}
+                </small>
               )}
             </div>
             <div>

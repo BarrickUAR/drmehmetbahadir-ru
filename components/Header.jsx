@@ -15,7 +15,7 @@ const Header = () => {
     { label: "Услуги", href: "/diseases" },
     { label: "Видео", href: "/videos" },
     { label: "Блог", href: "/blogs" }, // Aktif edildi
-    { label: "FAQ", href: "/faq" },
+    { label: "ЧаВо", href: "/faq" },
   ];
 
   return (

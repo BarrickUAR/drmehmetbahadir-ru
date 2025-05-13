@@ -30,7 +30,7 @@ const allVideos = [
     description: "Важность индивидуального подхода в терапии.",
   },
   {
-    url: "https://www.youtube.com/embed/XAJjWlb9adA",
+    url: "https://www.youtube.com/embed/",
     title: "Обратная связь",
     description: "Пациенты делятся своим мнением о клинике.",
   },

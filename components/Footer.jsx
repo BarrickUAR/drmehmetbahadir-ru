@@ -16,7 +16,7 @@ const Footer = () => {
     { label: "Услуги", href: "/diseases" }, // Diseases
     { label: "Контакты", href: "/videos" }, // Videos
     { label: "Блог", href: "/blogs" }, // Blogs
-    { label: "FAQ", href: "/faq" }, // FAQ
+    { label: "ЧаВо", href: "/faq" }, // FAQ
   ];
 
   return (
