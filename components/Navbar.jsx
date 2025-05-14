@@ -14,7 +14,7 @@ const Navbar = () => {
     { label: "Контакты", href: "/contact" },
     { label: "Услуги", href: "/diseases" },
     { label: "Видео", href: "/videos" },
-    { label: "Блог", href: "/blogs" }, // Aktif edildi
+    // { label: "Блог", href: "/blogs" }, // Aktif edildi
     { label: "ЧаВо", href: "/faq" },
   ];
 

@@ -8,7 +8,7 @@ const TextReveal = ({ text }) => {
       {text.split("").map((char, i) => (
         <span
           key={i}
-          className="inline-block opacity-0 animate-fade-in"
+          className="inline-block opacity-0 animate-fade-in "
           style={{
             animationDelay: `${i * 0.05}s`,
             animationFillMode: "forwards",

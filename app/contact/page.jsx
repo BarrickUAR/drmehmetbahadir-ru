@@ -122,7 +122,7 @@ const ContactPage = () => {
             </div>
             <div className="relative">
               <PhoneInput
-                country={""}
+                country={"ru"}
                 value={phone}
                 onChange={(value, country, e, formattedValue) => {
                   // Eğer kullanıcı tamamen silmeye çalışırsa, yine de ülke kodu kalsın
@@ -137,7 +137,7 @@ const ContactPage = () => {
                   name: "phone",
                   required: true,
                 }}
-                inputClass={`!w-full !p-2 !pl-12 !rounded ${
+                inputClass={`!w-full !p-2 !pl-12 !rounded !text-xl ${
                   errors.phone ? "!border-red-500" : "!border-gray-300"
                 }`}
                 containerClass="!w-full"

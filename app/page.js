@@ -140,13 +140,13 @@ export default function ServiceSection() {
   return (
     <React.Fragment>
       {/* Hero Section */}
-      <section className="containerHome min-h-screen w-full px-0 py-20 bg-white flex  text-white justify-between items-center mb-10  ">
-        <div className="wrapper flex flex-col items-center justify-center relative border-t border-b p-5 mx-auto ">
+      <section className="containerHome min-h-screen w-full px-0 py-20 bg-white flex  text-white justify-between items-center mb-10 ">
+        <div className="wrapper flex flex-col items-center justify-center relative border-t border-b p-5 mx-auto bg-white/25  rounded-lg  animate-fade-in  ">
           <div className="text-center flex flex-col items-center justify-center  ">
             <div>
               <TextReveal text="Dr. Mehmet Ilteber BAHADIR" />
             </div>
-            <p className="text-lg font-extrabold">
+            <p className="text-lg font-extrabold  ">
               В нашей клинике проводится лечение следующих заболеваний: псориаз,
               экзема, себорейный дерматит, лишай, ихтиоз
               <br />и ревматические заболевания (остеоартрит, анкилозирующий
@@ -178,6 +178,7 @@ export default function ServiceSection() {
         </div>
       </section>
       {/* Hero Section */}
+
       {/* Testimonial Section */}
       <section className="testimonialSection flex justify-center items-center mx-auto mb-20 px-4 py-10 md:p-20">
         <div className="flex flex-col gap-20 w-full">
@@ -274,9 +275,10 @@ export default function ServiceSection() {
         </div>
       </section>
       {/* Testimonial Section */}
+
       {/* Tratments */}
-      <h1 className="text-center py-4 mt-4 sm:mt-10 border-l-4 border-r-4 border-sky-400 w-fit mx-auto font-bold text-sky-500 text-xl sm:text-2xl mb-10">
-        Наши услуги
+      <h1 className="text-center p-10 mt-10 border-l-4 border-r-4 mb-20 border-sky-400 w-fit mx-auto text-2xl font-bold text-sky-500">
+        лечения
       </h1>
       <div className="containerTratements w-full bg-gray-200 py-10 px-4 sm:px-6 lg:px-10">
         <div className="tratementWrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full lg:px-40  ">
@@ -364,53 +366,8 @@ export default function ServiceSection() {
           </div>
         </div>
       </div>
-      {/* Service Section */}
-      <h1 className="text-center p-10 mt-10 border-l-4 border-r-4 mb-20 border-sky-400 w-fit mx-auto text-2xl font-bold text-sky-500">
-        Наши услуги
-      </h1>
-      <section className="serviceSection p-20">
-        <Swiper
-          slidesPerView={2}
-          spaceBetween={10}
-          freeMode={true}
-          pagination={{ clickable: true }}
-          modules={[FreeMode, Pagination]}
-          className="mySwiper"
-          breakpoints={{
-            320: { slidesPerView: 1 },
-            640: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-          }}
-        >
-          {services.map((item, i) => (
-            <SwiperSlide key={i}>
-              <div
-                onClick={() => handleCardClick(item.id)}
-                className="bg-white rounded-lg shadow-lg p-10 h-full flex flex-col items-center justify-between hover:scale-105 transition-all duration-200 cursor-pointer"
-              >
-                <Image
-                  src={item.src}
-                  className="mx-auto mb-5 mt-3 rounded-xl"
-                  alt={item.title}
-                  width={300}
-                  height={300}
-                />
-                <div className="text-center">
-                  <h4 className="text-lg mb-3">{item.title}</h4>
-                  <p className="text-sm">{item.description}</p>
-                </div>
-                <div className="flex items-center gap-1 mx-auto mt-5">
-                  <span className="hover:underline hover:opacity-100">
-                    Learn More
-                  </span>
-                  <FaArrowRight />
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </section>
-      {/* Service Section */}
+      {/* Tratments */}
+
       {/* Happy Clients Section */}
       <h1 className="text-center p-10 mt-10 border-l-4 border-r-4 mb-10 border-sky-400 w-fit mx-auto text-2xl font-bold text-sky-500">
         Что говорят наши пациенты?
@@ -455,6 +412,55 @@ export default function ServiceSection() {
         Посмотреть все отзывы на Google →
       </a>
       {/* Happy Clients Section */}
+
+      {/* Service Section */}
+      <h1 className="text-center p-10 mt-10 border-l-4 border-r-4 mb-20 border-sky-400 w-fit mx-auto text-2xl font-bold text-sky-500">
+        Наши услуги
+      </h1>
+
+      <section className="serviceSection p-20">
+        <Swiper
+          slidesPerView={2}
+          spaceBetween={10}
+          freeMode={true}
+          pagination={{ clickable: true }}
+          modules={[FreeMode, Pagination]}
+          className="mySwiper"
+          breakpoints={{
+            320: { slidesPerView: 1 },
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+        >
+          {services.map((item, i) => (
+            <SwiperSlide key={i}>
+              <Link href={`/diseases/${item.id}`}>
+                <div className="bg-white rounded-lg shadow-lg p-10 h-full flex flex-col items-center justify-between hover:scale-105 transition-all duration-200 cursor-pointer">
+                  <Image
+                    src={item.src}
+                    className="mx-auto mb-5 mt-3 rounded-xl"
+                    alt={item.title}
+                    width={300}
+                    height={300}
+                  />
+                  <div className="text-center">
+                    <h4 className="text-lg mb-3">{item.title}</h4>
+                    <p className="text-sm">{item.description}</p>
+                  </div>
+                  <div className="flex items-center gap-1 mx-auto mt-5">
+                    <span className="hover:underline hover:opacity-100">
+                      Learn More
+                    </span>
+                    <FaArrowRight />
+                  </div>
+                </div>
+              </Link>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </section>
+      {/* Service Section */}
+
       {/* Videos Section */}
       <section className="py-20 px-5 bg-gray-50">
         <h2 className="text-center text-2xl font-bold text-sky-600 mb-10">

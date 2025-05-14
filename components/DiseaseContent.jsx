@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 const diseases = [
@@ -91,12 +91,15 @@ const diseases = [
   },
 ];
 
-const DiseaseContent = () => {
-  const searchParams = useSearchParams();
+const DiseaseContent = ({ selectedId }) => {
   const router = useRouter();
-  const initialId = searchParams.get("disease");
+  const [activeId, setActiveId] = useState(selectedId || diseases[0].id);
 
-  const [activeId, setActiveId] = useState(initialId || diseases[0].id);
+  useEffect(() => {
+    if (selectedId && selectedId !== activeId) {
+      setActiveId(selectedId);
+    }
+  }, [selectedId]);
 
   const activeDisease = diseases.find((d) => d.id === activeId);
 
@@ -106,9 +109,9 @@ const DiseaseContent = () => {
   };
 
   return (
-    <div className="space-y-10 ">
+    <div className="space-y-10">
       <div>
-        <div className="flex flex-wrap gap-3 justify-center ">
+        <div className="flex flex-wrap gap-3 justify-center">
           {diseases.map((d) => (
             <button
               key={d.id}
@@ -125,7 +128,7 @@ const DiseaseContent = () => {
         </div>
       </div>
       {activeDisease && (
-        <div className="bg-white rounded-lg shadow-md flex flex-col md:flex-row gap-6 items-center justify-center gap-50 p-5">
+        <div className="bg-white rounded-lg shadow-md flex flex-col md:flex-row gap-6 items-center justify-center p-5">
           <Image
             src={activeDisease.image}
             alt={activeDisease.title}

@@ -15,7 +15,7 @@ const Footer = () => {
     { label: "Контакты", href: "/contact" },
     { label: "Услуги", href: "/diseases" },
     { label: "Видео", href: "/videos" },
-    { label: "Блог", href: "/blogs" },
+    // { label: "Блог", href: "/blogs" },
     { label: "ЧаВо", href: "/faq" },
   ];
 
