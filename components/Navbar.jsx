@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { FiMenu, FiX } from "react-icons/fi";
 import Image from "next/image";
+import { UserCircle } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +15,7 @@ const Navbar = () => {
     { label: "Контакты", href: "/contact" },
     { label: "Услуги", href: "/diseases" },
     { label: "Видео", href: "/videos" },
-    // { label: "Блог", href: "/blogs" }, // Aktif edildi
+    { label: "Блог", href: "/blogs" }, // Aktif edildi
     { label: "ЧаВо", href: "/faq" },
   ];
 
@@ -33,7 +34,6 @@ const Navbar = () => {
           {isOpen ? <FiX /> : <FiMenu />}
         </button>
       </div>
-
       {isOpen && (
         <nav className="bg-white border-t px-4 pb-4 flex flex-col gap-2 pt-3">
           {navItems.map((item, i) => (
@@ -41,12 +41,21 @@ const Navbar = () => {
               key={i}
               href={item.href}
               onClick={() => setIsOpen(false)}
-              className="py-2 text-gray-700 hover:text-sky-600 text-center border-1"
+              className="py-2 text-gray-700 hover:text-sky-600 text-center"
             >
               {item.label}
             </Link>
           ))}
-          <button className="btn-primary mt-2">Запись</button>
+
+          <button className="btn-primary mt-3">Запись</button>
+          {/* Admin girişi */}
+          <Link
+            href="/admin"
+            onClick={() => setIsOpen(false)}
+            className="flex items-center justify-center gap-2 text-sm text-sky-700 mt-4 hover:underline"
+          >
+            <UserCircle size={20} />
+          </Link>
         </nav>
       )}
     </header>

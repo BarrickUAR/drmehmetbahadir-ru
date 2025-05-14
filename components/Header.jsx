@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { RiAdminFill } from "react-icons/ri";
 
 const Header = () => {
   const pathname = usePathname();
@@ -14,7 +15,7 @@ const Header = () => {
     { label: "Контакты", href: "/contact" },
     { label: "Услуги", href: "/diseases" },
     { label: "Видео", href: "/videos" },
-    // { label: "Блог", href: "/blogs" }, // Aktif edildi
+    { label: "Блог", href: "/blogs" },
     { label: "ЧаВо", href: "/faq" },
   ];
 
@@ -26,7 +27,7 @@ const Header = () => {
     >
       {/* Logo */}
       <div className="mb-10">
-        <Link href={"/"}>
+        <Link href="/">
           <Image
             src="/images/logo-white.png"
             alt="Логотип"
@@ -54,11 +55,15 @@ const Header = () => {
         ))}
       </nav>
 
-      {/* Button */}
-      <div className="mt-auto pt-10">
-        <Link href="/contact" className="btn-primary">
-          Запись
-        </Link>
+      {/* Admin Avatar */}
+      <div className="flex flex-col justify-center items-center mx-auto  ">
+        {/* CTA Button */}
+        <div className="mt-auto pt-10">
+          <Link href="/contact" className="btn-primary">
+            Запись
+          </Link>
+        </div>
+      
       </div>
     </header>
   );

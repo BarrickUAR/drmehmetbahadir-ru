@@ -1,29 +1,20 @@
 [
   {
-    "title": "Псориаз: что нужно знать",
-    "slug": "psoriasis",
-    "summary": "Узнайте о причинах, симптомах и лечении псориаза.",
-    "date": "10 мая 2025",
-    "image": "/images/blog1.jpg",
-    "content": "Псориаз — это хроническое воспалительное заболевание кожи, сопровождающееся шелушением, зудом и покраснением. Оно требует комплексного подхода к лечению.",
+    "title": "Egzama Nedir? Belirtileri ve Tedavisi",
+    "slug": "egzama-nedir",
+    "summary": "Egzama hakkında detaylı bilgiler ve tedavi yöntemleri.",
+    "date": "2025-05-14",
+    "image": "/images/blogs/egzama.jpg",
+    "content": "Egzama, ciltte kızarıklık, kaşıntı ve kabarcıklarla kendini gösteren kronik bir cilt hastalığıdır.\nTedavisinde kortikosteroid kremler ve nemlendiriciler kullanılır.\n\nEgzamayı tetikleyen faktörlerden kaçınılması önemlidir.",
     "published": true
   },
   {
-    "title": "Экзема: причины и лечение",
-    "slug": "eczema",
-    "summary": "Как справляться с экземой без стресса и гормонов.",
-    "date": "12 мая 2025",
-    "image": "/images/blog2.jpg",
-    "content": "Экзема — это воспалительное заболевание кожи, вызывающее сухость и трещины. Важно избегать аллергенов и использовать увлажнение.",
-    "published": true
-  },
-  {
-    "title": "Аутоиммунные заболевания кожи",
-    "slug": "autoimmun",
-    "summary": "Почему иммунитет атакует кожу и как это лечить.",
-    "date": "14 мая 2025",
-    "image": "/images/blog3.jpg",
-    "content": "При аутоиммунных заболеваниях иммунная система атакует собственную кожу. Лечение требует диагностики и комплексного подхода.",
+    "title": "Sedef Hastalığına Ne İyi Gelir?",
+    "slug": "sedef-hastaligi-tedavi",
+    "summary": "Sedef hastalığını hafifletmek için uygulanan yöntemler.",
+    "date": "2025-05-10",
+    "image": "/images/blogs/sedef.jpg",
+    "content": "Sedef hastalığı otoimmün bir hastalıktır.\nStres, enfeksiyon ve hava koşulları hastalığı tetikleyebilir.\nDoğal tedavi yöntemleri, diyet ve yaşam tarzı değişiklikleri önerilir.",
     "published": true
   }
 ]
