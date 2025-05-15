@@ -1,60 +1,54 @@
-// app/blogs/[slug]/page.jsx
+"use client";
 
+import { useEffect, useState } from "react";
 import blogs from "@/data/blogs.json";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 
-export async function generateStaticParams() {
-  return blogs.map((blog) => ({ slug: blog.slug }));
-}
+export default function BlogPage() {
+  const [blogPosts, setBlogPosts] = useState([]);
 
-export default function BlogDetailPage({ params }) {
-  const blog = blogs.find((b) => b.slug === params.slug);
-
-  if (!blog) {
-    return (
-      <div className="max-w-3xl mx-auto py-20 text-center text-red-600 text-xl">
-        Блог не найден.{" "}
-        <Link href="/blogs" className="underline text-sky-700">
-          Посмотреть все блоги
-        </Link>
-      </div>
-    );
-  }
+  useEffect(() => {
+    setBlogPosts(blogs.filter((b) => b.published));
+  }, []);
 
   return (
-    <div className="max-w-4xl mx-auto py-16 px-4 sm:px-6 text-gray-800">
-      <Link
-        href="/blogs"
-        className="inline-block mb-6 text-sm text-sky-600 hover:underline"
-      >
-        ← Bloglara Geri Dön
-      </Link>
+    <div className="max-w-6xl mx-auto px-4 py-12">
+      <h1 className="text-4xl font-bold text-center mb-10 text-sky-700">
+        Блог
+      </h1>
 
-      <h1 className="text-4xl font-bold text-sky-700 mb-2">{blog.title}</h1>
-      <p className="text-sm text-gray-500 mb-6">{blog.date}</p>
-
-      {blog.image && (
-        <div className="relative w-full h-64 mb-8 rounded overflow-hidden shadow-md">
-          <Image
-            src={blog.image}
-            alt={blog.title}
-            fill
-            className="object-cover rounded"
-          />
+      {blogPosts.length === 0 ? (
+        <p className="text-center text-gray-500">Henüz blog yok.</p>
+      ) : (
+        <div className="grid md:grid-cols-2 gap-8">
+          {blogPosts.map((blog) => (
+            <Link
+              key={blog.slug}
+              href={`/blogs/${blog.slug}`}
+              className="border rounded-lg overflow-hidden shadow hover:shadow-lg transition"
+            >
+              {blog.image && (
+                <div className="relative h-48 w-full">
+                  <Image
+                    src={blog.image}
+                    alt={blog.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              )}
+              <div className="p-4">
+                <h2 className="text-xl font-semibold text-sky-700">
+                  {blog.title}
+                </h2>
+                <p className="text-sm text-gray-500">{blog.date}</p>
+                <p className="mt-2 text-gray-700">{blog.summary}</p>
+              </div>
+            </Link>
+          ))}
         </div>
       )}
-
-      <article className="prose prose-lg max-w-none text-gray-900">
-        {blog.content
-          .split("\n")
-          .filter(Boolean)
-          .map((para, i) => (
-            <p key={i} className="mb-4 whitespace-pre-line">
-              {para}
-            </p>
-          ))}
-      </article>
     </div>
   );
 }

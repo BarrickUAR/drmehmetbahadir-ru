@@ -4,7 +4,6 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { RiAdminFill } from "react-icons/ri";
 
 const Header = () => {
   const pathname = usePathname();
@@ -21,9 +20,11 @@ const Header = () => {
 
   return (
     <header
-      className="hidden md:flex fixed top-50 right-0 h-3/6 w-[200px] z-50 border-t-3
-     border-b-3 border-sky-500 bg-[#67636281] opacity-85 text-white 
-     flex-col items-center py-10 px-6 shadow-lg"
+      className="hidden md:flex fixed top-1/2 -translate-y-1/2 right-0 z-50
+    h-[60%] w-[160px] lg:w-[180px] xl:w-[200px]
+    border-t-4 border-b-4 border-sky-500
+    bg-[#67636281] opacity-85 text-white 
+    flex-col items-center py-10 px-4 shadow-lg justify-around"
     >
       {/* Logo */}
       <div className="mb-10">
@@ -55,7 +56,6 @@ const Header = () => {
         ))}
       </nav>
 
-      {/* Admin Avatar */}
       <div className="flex flex-col justify-center items-center mx-auto  ">
         {/* CTA Button */}
         <div className="mt-auto pt-10">
@@ -63,7 +63,6 @@ const Header = () => {
             Запись
           </Link>
         </div>
-      
       </div>
     </header>
   );
