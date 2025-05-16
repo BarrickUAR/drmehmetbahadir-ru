@@ -62,6 +62,16 @@ h4 {
   font-weight: bold;
 }
 
+h5 {
+  font-size: 3rem;
+  text-align: center;
+  display: flex;
+  color: whitesmoke;
+  font-weight: 700;
+  line-height: 120%;
+  font-weight: bolder;
+}
+
 img,
 image {
   pointer-events: none;

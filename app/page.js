@@ -144,7 +144,7 @@ export default function ServiceSection() {
         <div className="wrapper flex flex-col items-center justify-center relative border-t border-b p-5 mx-auto bg-white/25  rounded-lg  animate-fade-in  ">
           <div className="text-center flex flex-col items-center justify-center  ">
             <div>
-              <TextReveal text="Dr. Mehmet Ilteber BAHADIR" />
+              <TextReveal clas text="Dr. Mehmet Ilteber BAHADIR" />
             </div>
             <p className="text-lg font-extrabold  ">
               В нашей клинике проводится лечение следующих заболеваний: псориаз,

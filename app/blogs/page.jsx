@@ -14,12 +14,12 @@ export default function BlogPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">
-      <h1 className="text-4xl font-bold text-center mb-10 text-sky-700">
+      <h1 className="text-4xl font-bold text-center mb-10 text-sky-700 mt-5">
         Блог
       </h1>
 
       {blogPosts.length === 0 ? (
-        <p className="text-center text-gray-500">Henüz blog yok.</p>
+        <p className="text-center text-gray-500">Блогов пока нет.</p>
       ) : (
         <div className="grid md:grid-cols-2 gap-8">
           {blogPosts.map((blog) => (
@@ -39,11 +39,11 @@ export default function BlogPage() {
                 </div>
               )}
               <div className="p-4">
-                <h2 className="text-xl font-semibold text-sky-700">
+                <h2 className="text-2xl! font-semibold text-sky-700 mb-4">
                   {blog.title}
                 </h2>
                 <p className="text-sm text-gray-500">{blog.date}</p>
-                <p className="mt-2 text-gray-700">{blog.summary}</p>
+                <p className="mt-4 text-gray-700">{blog.summary}</p>
               </div>
             </Link>
           ))}
