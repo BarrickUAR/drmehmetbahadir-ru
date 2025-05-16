@@ -59,7 +59,7 @@ const Page = () => {
       </div>
 
       {/* Görsel Düzen */}
-      <div className="lg:w-1/2 grid  grid-cols-2 gap-4 relative top-50">
+      <div className="lg:w-1/2 grid  grid-cols-2 gap-4 relative top-30">
         {/* Büyük görsel sola taşar gibi */}
         <div className="col-span-2 relative z-10">
           <Image

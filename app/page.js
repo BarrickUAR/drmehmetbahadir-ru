@@ -140,13 +140,43 @@ export default function ServiceSection() {
   return (
     <React.Fragment>
       {/* Hero Section */}
-      <section className="containerHome min-h-screen w-full px-0 py-20 bg-white flex  text-white justify-between items-center mb-10 ">
-        <div className="wrapper flex flex-col items-center justify-center relative border-t border-b p-5 mx-auto bg-white/25  rounded-lg  animate-fade-in  ">
-          <div className="text-center flex flex-col items-center justify-center  ">
+      <section className="containerHome min-h-screen w-full px-0 py-20 bg-white flex text-white justify-between items-center mb-10 relative">
+        {/* Bang Bang efektleri */}
+        <div className="absolute inset-0 pointer-events-none z-10">
+          {[
+            "Псориаз, экзема и ревматизм — родственные заболевания!",
+            "Мы не используем кортизон или химические препараты!",
+            "Лечение очень лёгкое, простое и без побочных эффектов.",
+          ].map((text, index) => {
+            // Yukarı mı aşağı mı rastgele seç
+            const isTop = Math.random() > 0.5;
+            const top = isTop
+              ? `${Math.random() * 30 + 5}%` // Yukarı alan (5% – 35%)
+              : `${Math.random() * 30 + 65}%`; // Aşağı alan (65% – 95%)
+
+            return (
+              <span
+                key={index}
+                className="absolute text-black font-semibold bg-white/70 px-3 py-2 md:px-4 md:py-3 rounded-full shadow-xl transition-opacity duration-1000 text-xs sm:text-sm md:text-base max-w-[90vw] text-center backdrop-blur-sm border border-white/50"
+                style={{
+                  top,
+                  left: `${Math.random() * 80 + 10}%`,
+                  transform: "translate(-50%, -50%)",
+                  animation: `bangFade ${6 + index}s infinite`,
+                }}
+              >
+                {text}
+              </span>
+            );
+          })}
+        </div>
+
+        <div className="wrapper flex flex-col items-center justify-center relative border-t border-b p-5 mx-auto bg-black/30 rounded-lg animate-fade-in z-20">
+          <div className="text-center flex flex-col items-center justify-center">
             <div>
               <TextReveal clas text="Dr. Mehmet Ilteber BAHADIR" />
             </div>
-            <p className="text-lg font-extrabold  ">
+            <p className="text-lg font-extrabold">
               В нашей клинике проводится лечение следующих заболеваний: псориаз,
               экзема, себорейный дерматит, лишай, ихтиоз
               <br />и ревматические заболевания (остеоартрит, анкилозирующий
@@ -166,7 +196,7 @@ export default function ServiceSection() {
               href="tel:+905527533464"
               className="flex border-l-4 border-r-4 px-3 items-center gap-2 hover:opacity-80 transition-all duration-200"
             >
-              <FaPhone className="text-4xl w-[50px] h-[50px] text-white  text-primary border-2 border-[#25B4F8] p-2 rounded-lg" />
+              <FaPhone className="text-4xl w-[50px] h-[50px] text-white text-primary border-2 border-[#25B4F8] p-2 rounded-lg" />
               <div>
                 <h4 className="font-extrabold">
                   Вы можете позвонить для записи
@@ -176,6 +206,28 @@ export default function ServiceSection() {
             </a>
           </div>
         </div>
+
+        {/* Ekstra stil tanımı */}
+        <style jsx>{`
+          @keyframes bangFade {
+            0% {
+              opacity: 0;
+              transform: translate(-50%, -50%) scale(0.5);
+            }
+            20% {
+              opacity: 1;
+              transform: translate(-50%, -50%) scale(1);
+            }
+            80% {
+              opacity: 1;
+              transform: translate(-50%, -50%) scale(1);
+            }
+            100% {
+              opacity: 0;
+              transform: translate(-50%, -50%) scale(0.5);
+            }
+          }
+        `}</style>
       </section>
       {/* Hero Section */}
 

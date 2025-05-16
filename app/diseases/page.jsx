@@ -24,9 +24,9 @@ export default function DiseasesPage() {
   return (
     <div className=" bg-gradient-to-b from-white to-blue-50 py-20 px-6 sm:px-10 text-gray-800">
       <div className="max-w-7xl mx-auto text-center mb-12">
-        <h1 className="text-4xl sm:text-5xl font-bold text-sky-700 mb-4">
+        <h6 className="text-4xl sm:text-5xl font-bold text-sky-700 mb-4">
           Заболевания, которые мы лечим
-        </h1>
+        </h6>
         <p className="text-gray-600 text-lg max-w-2xl mx-auto">
           Мы используем инновационные и природные подходы для лечения кожных,
           аутоиммунных и хронических заболеваний.

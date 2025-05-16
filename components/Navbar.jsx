@@ -21,7 +21,7 @@ const Navbar = () => {
 
   return (
     <header className="md:hidden w-full bg-[#67636281] opacity-85 shadow-md fixed top-0 left-0 z-50 ">
-      <div className="flex items-center justify-between px-4 py-3 text-white">
+      <div className="flex items-center justify-between px-4 py-3 text-white ">
         <Image
           src="/images/logo-white.png"
           alt="Company Logo"
@@ -48,14 +48,7 @@ const Navbar = () => {
           ))}
 
           <button className="btn-primary mt-3">Запись</button>
-          {/* Admin girişi */}
-          <Link
-            href="/admin"
-            onClick={() => setIsOpen(false)}
-            className="flex items-center justify-center gap-2 text-sm text-sky-700 mt-4 hover:underline"
-          >
-            <UserCircle size={20} />
-          </Link>
+
         </nav>
       )}
     </header>

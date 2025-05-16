@@ -24,13 +24,13 @@ export default function BlogDetailPage({ params }) {
     <div className="max-w-4xl mx-auto py-16 px-4 sm:px-6 text-gray-800">
       <Link
         href="/blogs"
-        className="inline-block mb-6 text-sm text-sky-600 hover:underline"
+        className="inline-block mb-6 mt-20 text-xl text-sky-600 hover:underline"
       >
         ← Назад к блогам
       </Link>
 
-      <h1 className="text-4xl font-bold text-sky-700 mb-2">{blog.title}</h1>
-      <p className="text-sm text-gray-500 mb-6">{blog.date}</p>
+      <h6 className="text-4xl font-bold text-sky-700 mb-4">{blog.title}</h6>
+      <p className="text- text-gray-500 mb-6">{blog.date}</p>
 
       {blog.image && (
         <div className="relative w-full h-64 mb-8 rounded overflow-hidden shadow-md">

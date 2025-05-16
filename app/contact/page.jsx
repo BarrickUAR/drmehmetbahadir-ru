@@ -71,10 +71,10 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="bg-white px-4 sm:px-6 lg:px-60 py-10">
-      <h1 className="text-3xl font-bold text-center text-sky-600 pt-5 pb-10">
+    <div className="bg-white px-4 sm:px-6 lg:px-60 py-10 mt-5">
+      <h6 className="text-3xl font-bold text-center text-sky-600 pt-5 pb-10">
         Свяжитесь с нами
-      </h1>
+      </h6>
 
       <section className="w-full flex flex-col lg:flex-row gap-10 justify-between items-start bg-gray-100 p-5 rounded-lg">
         {/* MAP */}
@@ -137,9 +137,8 @@ const ContactPage = () => {
                   name: "phone",
                   required: true,
                 }}
-                inputClass={`!w-full !p-2 !pl-12 !rounded !text-xl ${
-                  errors.phone ? "!border-red-500" : "!border-gray-300"
-                }`}
+                inputClass={`!w-full !p-2 !pl-12 !rounded !text-xl ${errors.phone ? "!border-red-500" : "!border-gray-300"
+                  }`}
                 containerClass="!w-full"
                 buttonClass="!border !border-r-0 !rounded-l !bg-white"
               />

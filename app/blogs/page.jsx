@@ -13,10 +13,10 @@ export default function BlogPage() {
   }, []);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-12">
-      <h1 className="text-4xl font-bold text-center mb-10 text-sky-700 mt-5">
+    <div className="max-w-6xl mx-auto px-4 py-12 mt-5">
+      <h6 className="text-4xl font-bold text-center mb-10 text-sky-700 mt-5">
         Блог
-      </h1>
+      </h6>
 
       {blogPosts.length === 0 ? (
         <p className="text-center text-gray-500">Блогов пока нет.</p>

@@ -40,7 +40,7 @@ export default function DiseaseClient({ slug }) {
       >
         <Link
           href="/diseases"
-          className="inline-flex items-center gap-2 text-sky-700 hover:text-sky-900 text-sm font-medium transition hover:underline"
+          className="inline-flex items-center gap-2 text-sky-700 hover:text-sky-900 text-xl font-medium transition hover:underline  mt-15"
         >
           <ArrowLeft size={18} /> Назад к списку заболеваний
         </Link>
