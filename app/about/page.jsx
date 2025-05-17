@@ -5,7 +5,7 @@ const Page = () => {
     <div className="px-6 py-20 max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 items-start">
       {/* Metin Bölümü */}
       <div className="lg:w-1/2 text-justify">
-        <h1 className="text-3xl font-bold text-sky-600 mb-6">О нас</h1>
+        <h6 className="text-3xl font-bold text-sky-600 mb-6">О нас</h6>
 
         <p className="text-gray-700 leading-7 break-words whitespace-normal">
           Родился в 1971 году в Анталии. Начальное и среднее образование окончил

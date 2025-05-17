@@ -20,7 +20,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="w-full text-black opacity-90 pt-10 pb-5 px-4 shadow-inner border-t border-sky-500 bg-white">
+    <footer className="w-full text-black opacity-90 pt-10 pb-5 px-4 shadow-inner border-t border-sky-500 bg-white  xl:mt-50 lg:mt-50">
       <div className="wrapper max-w-6xl mx-auto flex flex-wrap sm:flex-row justify-between items-center gap-6 border-b pb-4">
         {/* Logo */}
         <div className="flex-shrink-0">
@@ -41,11 +41,10 @@ const Footer = () => {
             <Link
               key={href}
               href={href}
-              className={`text-sm sm:text-base font-medium transition-all duration-200 ${
-                pathname === href
-                  ? "underline underline-offset-4 decoration-[#25B4F8] text-[#25B4F8]"
-                  : "opacity-80 hover:text-[#25B4F8] hover:underline"
-              }`}
+              className={`text-sm sm:text-base font-medium transition-all duration-200 ${pathname === href
+                ? "underline underline-offset-4 decoration-[#25B4F8] text-[#25B4F8]"
+                : "opacity-80 hover:text-[#25B4F8] hover:underline"
+                }`}
             >
               {label}
             </Link>

@@ -141,91 +141,86 @@ export default function ServiceSection() {
     <React.Fragment>
       {/* Hero Section */}
       <section className="containerHome min-h-screen w-full px-0 py-20 bg-white flex text-white justify-between items-center mb-10 relative">
-        {/* Bang Bang efektleri */}
-        <div className="absolute inset-0 pointer-events-none z-10">
+        {/* Bang Bang efektleri ortalanmış ve alt alta */}
+        <div className="absolute top-15 left-0 w-full flex flex-col items-center gap-5 mt-4 pointer-events-none z-10">
           {[
             "Псориаз, экзема и ревматизм — родственные заболевания!",
             "Мы не используем кортизон или химические препараты!",
             "Лечение очень лёгкое, простое и без побочных эффектов.",
-          ].map((text, index) => {
-            // Yukarı mı aşağı mı rastgele seç
-            const isTop = Math.random() > 0.5;
-            const top = isTop
-              ? `${Math.random() * 30 + 5}%` // Yukarı alan (5% – 35%)
-              : `${Math.random() * 30 + 65}%`; // Aşağı alan (65% – 95%)
-
-            return (
-              <span
-                key={index}
-                className="absolute text-black font-semibold bg-white/70 px-3 py-2 md:px-4 md:py-3 rounded-full shadow-xl transition-opacity duration-1000 text-xs sm:text-sm md:text-base max-w-[90vw] text-center backdrop-blur-sm border border-white/50"
-                style={{
-                  top,
-                  left: `${Math.random() * 80 + 10}%`,
-                  transform: "translate(-50%, -50%)",
-                  animation: `bangFade ${6 + index}s infinite`,
-                }}
-              >
-                {text}
-              </span>
-            );
-          })}
+          ].map((text, index) => (
+            <span
+              key={index}
+              className="text-black font-semibold bg-white/70 px-4 py-2 md:px-4 md:py-3 rounded-full shadow-xl transition-opacity duration-1000 text-md sm:text-lg md:text-base max-w-[90vw] text-center backdrop-blur-sm border border-white/50 animate-bang"
+              style={{
+                animationDelay: `${index * 2}s`,
+                animationDuration: `6s`,
+              }}
+            >
+              {text}
+            </span>
+          ))}
         </div>
 
-        <div className="wrapper flex flex-col items-center justify-center relative border-t border-b p-5 mx-auto bg-black/30 rounded-lg animate-fade-in z-20">
-          <div className="text-center flex flex-col items-center justify-center">
-            <div>
-              <TextReveal clas text="Dr. Mehmet Ilteber BAHADIR" />
-            </div>
-            <p className="text-lg font-extrabold">
+        {/* İçerik */}
+        <div className="wrapper flex flex-col items-center justify-center relative border-t border-b p-3 sm:p-6 mx-auto bg-black/50 rounded-lg animate-fade-in z-20 w-full mt-60 sm:mt-0">
+          <div className="text-center flex flex-col items-center justify-center w-full px-2">
+            <h1 className="text-2xl!   font-bold text-white text-center">
+              Dr. Mehmet Ilteber BAHADIR
+            </h1>
+
+            <p className="hidden sm:block text-sm sm:text-lg font-semibold text-center mt-2 sm:mt-4 text-white leading-snug max-w-3xl">
               В нашей клинике проводится лечение следующих заболеваний: псориаз,
-              экзема, себорейный дерматит, лишай, ихтиоз
-              <br />и ревматические заболевания (остеоартрит, анкилозирующий
-              спондилит, тиреоидит Хашимото).
+              экзема, себорейный дерматит, лишай, ихтиоз и ревматические
+              заболевания (остеоартрит, анкилозирующий спондилит, тиреоидит
+              Хашимото).
             </p>
           </div>
-          <div className="flex gap-4 mt-10">
-            <div>
-              <Link
-                href="/contact"
-                className="btn-primary inline-block text-center"
-              >
-                Записаться на приём
-              </Link>
-            </div>
+
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-5 sm:mt-8 w-full justify-center px-2">
+            <Link
+              href="/contact"
+              className="btn-primary text-center w-full sm:w-auto"
+            >
+              Записаться на приём
+            </Link>
+
             <a
               href="tel:+905527533464"
-              className="flex border-l-4 border-r-4 px-3 items-center gap-2 hover:opacity-80 transition-all duration-200"
+              className="flex items-center gap-2 border-l-4 border-r-4 px-3 py-2 hover:opacity-80 transition-all duration-200 bg-white/10 rounded-lg w-full sm:w-auto"
             >
-              <FaPhone className="text-4xl w-[50px] h-[50px] text-white text-primary border-2 border-[#25B4F8] p-2 rounded-lg" />
-              <div>
-                <h4 className="font-extrabold">
-                  Вы можете позвонить для записи
-                </h4>
-                <p className="font-extrabold">+90 (552) 753 34 64</p>
+              <FaPhone className="text-2xl sm:text-3xl w-10 h-10 text-white text-primary border border-[#25B4F8] p-2 rounded-lg" />
+              <div className="text-white text-left text-xs sm:text-sm leading-tight">
+                <h4 className="font-bold">Вы можете позвонить для записи</h4>
+                <p className="font-bold">+90 (552) 753 34 64</p>
               </div>
             </a>
           </div>
         </div>
 
-        {/* Ekstra stil tanımı */}
+        {/* Animasyon tanımı */}
         <style jsx>{`
           @keyframes bangFade {
             0% {
               opacity: 0;
-              transform: translate(-50%, -50%) scale(0.5);
+              transform: scale(0.5);
             }
             20% {
               opacity: 1;
-              transform: translate(-50%, -50%) scale(1);
+              transform: scale(1);
             }
             80% {
               opacity: 1;
-              transform: translate(-50%, -50%) scale(1);
+              transform: scale(1);
             }
             100% {
               opacity: 0;
-              transform: translate(-50%, -50%) scale(0.5);
+              transform: scale(0.5);
             }
+          }
+
+          .animate-bang {
+            animation-name: bangFade;
+            animation-iteration-count: infinite;
           }
         `}</style>
       </section>
