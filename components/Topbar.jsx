@@ -1,3 +1,4 @@
+import { Link } from "lucide-react";
 import React from "react";
 import {
   FaFacebookF,
@@ -67,9 +68,9 @@ const Topbar = () => {
           </a>
 
           {/* Randevu Butonu */}
-          <a href="/contact" className="btn-primary px-3 py-1 text-sm">
+          <Link href="/contact" className="btn-primary px-3 py-1 text-sm">
             Запись
-          </a>
+          </Link>
         </div>
       </div>
     </div>
