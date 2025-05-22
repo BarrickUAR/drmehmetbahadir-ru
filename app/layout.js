@@ -1,7 +1,7 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import "../styles/globals.css";
 import { Lora } from "next/font/google";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Topbar from "@/components/Topbar";
 import WhatsappIcon from "@/components/WhatsappIcon";
@@ -18,17 +18,51 @@ const lora = Lora({
 export const metadata = {
   title: "Др. Мехмет Илтебер Бахадир",
   description:
-    "Клиника лечения псориаза и других кожных заболеваний. Индивидуальный подход, проверенные методы и забота о каждом пациенте.",
+    "Клиника в Стамбуле, специализирующаяся на лечении псориаза, экземы и ревматических заболеваний. Индивидуальный подход, проверенные натуральные методы и забота о каждом пациенте.",
+  keywords: [
+    "псориаз лечение",
+    "экзема",
+    "ревматизм",
+    "клиника Стамбул",
+    "натуральное лечение кожи",
+    "дерматология Турция",
+    "Dr. Mehmet Ilteber Bahadır",
+  ],
+  openGraph: {
+    title: "Др. Мехмет Илтебер Бахадир — Клиника лечения псориаза и экземы",
+    description:
+      "Эффективное лечение псориаза, экземы и ревматических заболеваний без кортизона. Расположено в Стамбуле.",
+    url: "https://www.sitenizinadi.ru",
+    siteName: "Dr. Mehmet Ilteber Bahadır",
+    locale: "ru_RU",
+    type: "website",
+    images: [
+      {
+        url: "https://www.sitenizinadi.ru/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Клиника лечения кожных заболеваний в Стамбуле",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Др. Мехмет Илтебер Бахадир — Лечение кожных заболеваний",
+    description:
+      "Клиника в Стамбуле. Эффективные методы лечения псориаза и экземы без химии.",
+    images: ["https://www.sitenizinadi.ru/images/og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="ru">
-      <head>
-        <link rel="icon" href="/favicon.png" type="image/png" />{" "}
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </head>
+      <link rel="icon" href="/favicon.png" type="image/png" />{" "}
       <body className={`${lora.variable} flex flex-col min-h-screen`}>
         <Popup />
         <ScrollToTop />
