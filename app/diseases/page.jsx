@@ -3,26 +3,32 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowDownAZ, ArrowUpAZ, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
-import diseases from "@/lib/data/diseases";
+import diseasesRaw from "@/lib/data/diseases";
+
+// Öncelikli gösterilecek ID'ler
+const prioritizedIds = ["psoriasis", "eczema", "rheumatism", "acne"];
+
+const sortedDiseases = [
+  ...prioritizedIds
+    .map((id) => diseasesRaw.find((d) => d.id === id))
+    .filter(Boolean),
+  ...diseasesRaw.filter((d) => !prioritizedIds.includes(d.id)),
+];
 
 export default function DiseasesPage() {
   const [search, setSearch] = useState("");
-  const [sortAsc, setSortAsc] = useState(true);
 
   const filteredDiseases = useMemo(() => {
-    const sorted = [...diseases].sort((a, b) =>
-      sortAsc ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title)
-    );
-    return sorted.filter((d) =>
+    return sortedDiseases.filter((d) =>
       d.title.toLowerCase().includes(search.toLowerCase())
     );
-  }, [search, sortAsc]);
+  }, [search]);
 
   return (
-    <div className=" bg-gradient-to-b from-white to-blue-50 py-20 px-6 sm:px-10 text-gray-800">
+    <div className="bg-gradient-to-b from-white to-blue-50 py-20 px-6 sm:px-10 text-gray-800">
       <div className="max-w-7xl mx-auto text-center mb-12">
         <h6 className="text-4xl sm:text-5xl font-bold text-sky-700 mb-4">
           Заболевания, которые мы лечим
@@ -43,13 +49,7 @@ export default function DiseasesPage() {
             className="pl-10 py-2 rounded-lg"
           />
         </div>
-        <button
-          onClick={() => setSortAsc((prev) => !prev)}
-          className="flex items-center gap-2 text-sm text-sky-700 hover:underline"
-        >
-          {sortAsc ? <ArrowDownAZ size={18} /> : <ArrowUpAZ size={18} />}
-          {sortAsc ? "A–Z" : "Z–A"}
-        </button>
+        {/* Sort butonu kaldırıldı */}
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
