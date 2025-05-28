@@ -32,13 +32,13 @@ export const metadata = {
     title: "Др. Мехмет Илтебер Бахадир — Клиника лечения псориаза и экземы",
     description:
       "Эффективное лечение псориаза, экземы и ревматических заболеваний без кортизона. Расположено в Стамбуле.",
-    url: "https://www.sitenizinadi.ru",
+    url: "https://www.drmehmetilteberbahadir.com",
     siteName: "Dr. Mehmet Ilteber Bahadır",
     locale: "ru_RU",
     type: "website",
     images: [
       {
-        url: "https://www.sitenizinadi.ru/images/og-image.jpg",
+        url: "https://www.drmehmetilteberbahadir.com/images/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Клиника лечения кожных заболеваний в Стамбуле",
@@ -50,7 +50,7 @@ export const metadata = {
     title: "Др. Мехмет Илтебер Бахадир — Лечение кожных заболеваний",
     description:
       "Клиника в Стамбуле. Эффективные методы лечения псориаза и экземы без химии.",
-    images: ["https://www.sitenizinadi.ru/images/og-image.jpg"],
+    images: ["https://www.drmehmetilteberbahadir.com/images/og-image.jpg"],
   },
   robots: {
     index: true,

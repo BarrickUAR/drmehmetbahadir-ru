@@ -15,6 +15,7 @@ import { animate } from "animejs";
 import TextReveal from "@/components/TextReveal";
 import Topbar from "@/components/Topbar";
 import { useRouter } from "next/navigation";
+import Head from "next/head";
 
 const reviews = [
   {
@@ -136,6 +137,7 @@ export default function ServiceSection() {
         "Онкологическое заболевание, характеризующееся аномальным ростом клеток.",
     },
   ];
+
 
   return (
     <React.Fragment>

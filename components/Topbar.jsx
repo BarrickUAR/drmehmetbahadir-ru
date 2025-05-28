@@ -67,10 +67,7 @@ const Topbar = () => {
             +90 (552) 753 34 64
           </a>
 
-          {/* Randevu Butonu */}
-          <Link href="/contact" className="btn-primary px-3 py-1 text-sm">
-            Запись
-          </Link>
+
         </div>
       </div>
     </div>
