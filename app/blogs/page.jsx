@@ -29,12 +29,12 @@ export default function BlogPage() {
               className="border rounded-lg overflow-hidden shadow hover:shadow-lg transition"
             >
               {blog.image && (
-                <div className="relative h-48 w-full">
+                <div className="relative h-108 w-full">
                   <Image
                     src={blog.image}
                     alt={blog.title}
                     fill
-                    className="object-cover"
+                    className="object-fit"
                   />
                 </div>
               )}

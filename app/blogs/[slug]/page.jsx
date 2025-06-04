@@ -33,12 +33,12 @@ export default function BlogDetailPage({ params }) {
       <p className="text- text-gray-500 mb-6">{blog.date}</p>
 
       {blog.image && (
-        <div className="relative w-full h-64 mb-8 rounded overflow-hidden shadow-md">
+        <div className="relative w-full h-100 mb-8 rounded overflow-hidden shadow-md">
           <Image
             src={blog.image}
             alt={blog.title}
             fill
-            className="object-cover rounded"
+            className="object-center rounded"
           />
         </div>
       )}
