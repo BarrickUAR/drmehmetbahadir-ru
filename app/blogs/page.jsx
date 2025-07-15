@@ -21,12 +21,12 @@ export default function BlogPage() {
       {blogPosts.length === 0 ? (
         <p className="text-center text-gray-500">Блогов пока нет.</p>
       ) : (
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-1">
           {blogPosts.map((blog) => (
             <Link
               key={blog.slug}
               href={`/blogs/${blog.slug}`}
-              className="border rounded-lg overflow-hidden shadow hover:shadow-lg transition"
+              className="border rounded-lg overflow-hidden  shadow hover:shadow-lg transition "
             >
               {blog.image && (
                 <div className="relative h-120 w-full">
@@ -34,7 +34,7 @@ export default function BlogPage() {
                     src={blog.image}
                     alt={blog.title}
                     fill
-                    className="object-fit"
+                    className="object-contain"
                   />
                 </div>
               )}
